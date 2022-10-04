@@ -1,45 +1,49 @@
 class Api::NotesController < ApplicationController
+  before_action :set_plant
+  before_action :set_note, only: [:show, :update, :destroy]
 
 def index
-  render jsonL Notes.all
+  render json: @plant.notes
 end
 
 def show
-  @notes = Notes.find(params[:id])
-  render json: @notes
+  render json: @note
 end
 
 def create
-  @notes = Notes.new(notes_params)
-  if @notes.save
-    render json: @notes
+  @note = @plant.new(note_params)
+  if @note.save
+    render json: @note
   else
-    render json: { errors: @notes.errors }, 
+    render json: { errors: @note.errors }, 
     status: :unprocessable_entity
   end
 end
 
 def update
-  @notes = Notes.find(params[:id])
-  if @notes.update(notes_params)
-    render json: @notes
+  if @note.update(note_params)
+    render json: @note
   else
-    render json: { errors: @notes.errors }, 
+    render json: { errors: @note.errors }, 
     status: :unprocessable_entity
   end
 end
 
 def destroy
-  @notes = Notes.find(params[:id])
-  @notes.destroy
-  render json: { message: 'notes deleted' }
-  or
-  Notes.find(params[:id]).destroy
-  render json: { message: 'notes deleted' }
+  @note.destroy
+  render json: { message: 'note deleted' }
 end
 
 private
   def notes_params
-    params.require(:notes).permit(:body, :plant_id, :everything the table has)
+    params.require(:note).permit(:body, :plant_id, :everything the table has)
+  end
+
+  def set_plant
+    @plant = Plant.find(params[:plant_id])
+  end
+
+  def set_note
+    @note = @plant.notes.find(params[:id])
   end
 end
