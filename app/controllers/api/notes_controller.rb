@@ -36,7 +36,7 @@ end
 
 private
   def notes_params
-    params.require(:note).permit(:body, :plant_id, :everything the table has)
+    params.require(:note).permit(:body, :plant_id)
   end
 
   def set_plant
