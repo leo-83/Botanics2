@@ -14,7 +14,7 @@ const WishlistForm = ({ addEnroll, setAdd, unenrolledUsers, id, user_id, updateE
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
-      updateWishlist(plantId, id, wishlist)
+      updateWishlist( plantId, id, wishlist )
       setEdit(false)
     } else {
       addWishlist(plantId, wishlist)

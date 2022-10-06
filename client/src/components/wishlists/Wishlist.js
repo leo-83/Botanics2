@@ -13,7 +13,7 @@ const Wishlists = ({ getAllWishlists, wishlists }) => {
   const [adding, setAdd] = useState(false)
 
   useEffect( () => {
-    getAllWishlists(courseId)
+    getAllWishlists(plantId)
   }, [])
 
   return (
@@ -27,8 +27,7 @@ const Wishlists = ({ getAllWishlists, wishlists }) => {
           <Modal.Title>Add a Wishlist</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <EnrollForm 
-            unenrolledUsers={unenrolledUsers}
+          <WishlistForm 
             setAdd={setAdd}
             plantId={plantId}
           />

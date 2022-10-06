@@ -45,7 +45,7 @@ const WishlistShow = ({ id, plant_id, user_id, updateWishlist, deleteWishlist })
           </Button>
           <Button 
             variant='danger'
-            onClick={() => deleteEnroll(id)}
+            onClick={() => deleteWishlist(id)}
           >
             Delete
           </Button>
