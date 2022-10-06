@@ -4,7 +4,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Nomatch from './components/shared/Nomatch';
 import MainNavbar from './components/shared/MainNavbar';
-import Wishlist from '.components/wishlists/Wishlist'
+import Wishlist from './components/wishlists/Wishlist';
 // import Footer from './components/shared/Footer';
 
 const App = () => (
