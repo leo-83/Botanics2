@@ -4,11 +4,22 @@ import { Form, Button } from 'react-bootstrap';
 const PlantForm = ({ addPlant, setAdd }) => {
   const [plant, setPlant] = useState({ name: '', img: '', desc: '' })
 
+  useEffect( () => {
+    if (id) {
+      setPlant({ name, desc, img })
+    }
+  }, [])
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPlant(plant)
-    setAdd(false)
-    setPlant({ name: '', img: '', desc: '' })
+    if (id) {
+      updatePlant(id, plant)
+      setEdit(false)
+    } else {
+      addPlant(plant)
+      setAdd(false)
+    }
+    setPlant({ name: '', desc: '', img: '' })
   }
 
   return (

@@ -13,6 +13,7 @@ import Notes from './components/notes/Notes';
 // import WishlistForm from './components/wishlist/WishlistForm'
 // import Footer from './components/shared/Footer';
 
+
 const App = () => (
   <>
     <MainNavbar />
