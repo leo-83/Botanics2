@@ -13,6 +13,7 @@ import Notes from './components/notes/Notes';
 // import WishlistForm from './components/wishlist/WishlistForm'
 // import Footer from './components/shared/Footer';
 
+
 const App = () => (
   <>
     <MainNavbar />
@@ -23,8 +24,8 @@ const App = () => (
       <Route path='/' element={<ProtectedRoute /> }>
         <Route path='/plants' element={<Plants />} />
         <Route path='/:id/updatePlant' element={<PlantForm />} />
-        <Route path='/wishlists' element={<Wishlists />} />
-        <Route path='/:id/updateWishlist' element={<WishlistForm />} />
+        {/* <Route path='/wishlists' element={<Wishlists />} />
+        <Route path='/:id/updateWishlist' element={<WishlistForm />} /> */}
         <Route path='/:plantId/notes' element={<Notes />} />
         {/* <Route path='/profile' element={<Profile />} /> */}
       </Route>

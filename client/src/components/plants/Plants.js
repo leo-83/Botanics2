@@ -3,22 +3,10 @@ import axios from 'axios';
 import PlantList from './PlantList';
 import PlantForm from './PlantForm';
 import { Modal, Button } from 'react-bootstrap';
+import { PlantConsumer } from '../../providers/PlantProvider';
 
-const Plants = () => {
-  const [plants, setPlants] = useState([])
+const Plants = ({ addPlant, plants }) => {
   const [adding, setAdd] = useState(false)
-
-  useEffect( () => {
-    axios.get('/api/plants')
-      .then( res => setPlants(res.data))
-      .catch( err => console.log(err))
-  }, [])
-
-  const addPlant = (plant) => {
-    axios.post('/api/plants', { plant })
-      .then( res => setPlants([...plants, res.data]))
-      .catch( err => console.log(err))
-  }
 
   return (
     <>
@@ -28,7 +16,7 @@ const Plants = () => {
 
       <Modal show={adding} onHide={() => setAdd(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Create Plant</Modal.Title>
+          <Modal.Title>Add Plant</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <PlantForm
@@ -44,3 +32,11 @@ const Plants = () => {
     </>
   )
 }
+
+const ConnectedPlants = (props) => (
+  <PlantsConsumer>
+    { value => <Plants {...value} {...props} />}
+  </PlantConsumer>
+)
+
+export default ConnectedPlants;
