@@ -1,4 +1,6 @@
 class Api::PestdiseasesController < ApplicationController
+    before_action :set_plant
+    before_action :set_pestdiseases, only: [:show, :update, :destroy]
 
     def index
         render json: Pestdisease.all
