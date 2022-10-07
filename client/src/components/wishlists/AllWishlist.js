@@ -4,10 +4,10 @@ import WishlistShow from './WishlistShow';
 const AllWishlist = ({ Wishlists, updateWishlists, deleteWishlist, plantId }) => (
   <Container>
     <ListGroup variant="flush">
-      { Wishlists.map( e => 
+      { Wishlists.map( w => 
         <WishlistShow 
-          key={e.id}
-          {...e}
+          key={w.id}
+          {...w}
           plantId={plantId}
         />
       )}
