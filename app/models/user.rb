@@ -2,6 +2,9 @@
 
 class User < ActiveRecord::Base
   extend Devise::Models
+
+  has_many :plants
+  has_many :wishlists, dependent: :destroy
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
