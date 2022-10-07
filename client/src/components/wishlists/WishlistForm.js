@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useResolvedPath } from 'react-router-dom';
 import { WishlistConsumer } from '../../providers/WishlistProvider';
 
-const WishlistForm = ({ addEnroll, setAdd, unenrolledUsers, id, user_id, updateEnroll, setEdit, courseId }) => {
+const WishlistForm = ({ addWishlist, setAdd, id, user_id, updateWishlist, setEdit, plantId }) => {
   const [wishlist, setWishlist] = useState({ user_id: 0 })
 
   useEffect( () => {
@@ -11,8 +12,8 @@ const WishlistForm = ({ addEnroll, setAdd, unenrolledUsers, id, user_id, updateE
     }
   }, [])
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = (w) => {
+    w.preventDefault()
     if (id) {
       updateWishlist( plantId, id, wishlist )
       setEdit(false)
@@ -31,11 +32,11 @@ const WishlistForm = ({ addEnroll, setAdd, unenrolledUsers, id, user_id, updateE
           <Form.Select
             name='user_id'
             value={wishlist.user_id}
-            onChange={(e) => setWishlist({...wishlist, user_id: parseInt(e.target.value) })}
+            onChange={(w) => setWishlist({...wishlist, user_id: parseInt(w.target.value) })}
             required
           >
-            <option>Choose an user</option>
-            { unenrolledUsers.map( u => 
+            <option>Choose a user</option>
+            { ( u =>
               <option value={u.id} key={u.id}>
                 {u.first_name} {u.last_name}
               </option>
