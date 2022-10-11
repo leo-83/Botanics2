@@ -48,11 +48,7 @@ const Plants = ({ plants, getAllPlants }) => {
 
 const ConnectedPlants = (props) => (
   <PlantConsumer>
-<<<<<<< HEAD
     { value => <Plants {...props} {...value} /> }
-=======
-    { value => <Plants {...value} {...props} />}
->>>>>>> 264e7c3 (commented out routes)
   </PlantConsumer>
 )
 

@@ -23,21 +23,12 @@ const App = () => (
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/' element={<ProtectedRoute /> }>
-<<<<<<< HEAD
       <Route path='/plants' element={<Plants />} /> 
       <Route path='/:id/updatePlant' element={<PlantForm />} /> */}
         {/* <Route path='/wishlists' element={<Wishlists />} />
         <Route path='/:id/updateWishlist' element={<WishlistForm />} /> */}
         {/* <Route path='/:plantId/notes' element={<Notes />} /> */}
       <Route path='/profile' element={<Profile />} />
-=======
-        {/* <Route path='/plants' element={<Plants />} />
-        <Route path='/:id/updatePlant' element={<PlantForm />} /> */}
-        {/* <Route path='/wishlists' element={<Wishlists />} />
-        <Route path='/:id/updateWishlist' element={<WishlistForm />} /> */}
-        {/* <Route path='/:plantId/notes' element={<Notes />} /> */}
-        {/* <Route path='/profile' element={<Profile />} /> */}
->>>>>>> 264e7c3 (commented out routes)
       </Route>
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
