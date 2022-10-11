@@ -1,21 +1,27 @@
-import { useState } from "react";
-import { Form, Button } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
+import { PlantConsumer } from '../../providers/PlantProvider'; 
+import { Button, Form } from 'react-bootstrap';
+import { useParams, useLocation } from 'react-router-dom';
+import Flash from '../shared/Flash';
 
-const PlantForm = ({ addPlant, setAdd }) => {
-  const [plant, setPlant] = useState({ name: '', img: '', desc: '' })
-
+const PlantForm = ({ addPlant, setAdd, updatePlant, errors, setErrors, plant, setPlant }) => {
+  const [cat, setCat] = useState({ name: '', desc: '', img: '' })
+  const { id } = useParams();
+  const location = useLocation()
+   
   useEffect( () => {
     if (id) {
-      setPlant({ name, desc, img })
+      const { name, desc, img } = location.state 
+      setCat({ name, desc, img })
     }
   }, [])
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (id) {
       updatePlant(id, plant)
-      setEdit(false)
-    } else {
+    } 
+    else {
       addPlant(plant)
       setAdd(false)
     }
@@ -24,52 +30,42 @@ const PlantForm = ({ addPlant, setAdd }) => {
 
   return (
     <>
+      { errors ?
+        <Flash
+          variant={errors.variant}
+          msg={errors.msg}
+          setErrors={setErrors}
+        />
+      : null
+      }
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
+        <Form.Group>
           <Form.Label>Name</Form.Label>
           <Form.Control 
             name='name'
             value={plant.name}
-            onChange={(e) => setPlant({ ...plant, name: e.target.value })}
-            required
-            placeholder="name"
+            onChange={(e) => setPlant({ ...cat, name: e.target.value })}
+            required  
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group>
           <Form.Label>Description</Form.Label>
           <Form.Control 
             name='desc'
             value={plant.desc}
             onChange={(e) => setPlant({ ...plant, desc: e.target.value })}
-            required
-            as="textarea" 
-            rows={3}
+            required  
           />
         </Form.Group>
-        {/* <Form.Group className="mb-3">
-          <Form.Label>Course type</Form.Label>
+        <Form.Group>
+          <Form.Label>Image</Form.Label>
           <Form.Control 
-            name='ctype'
-            value={plant.ctype}
-            onChange={(e) => setPlant({ ...plant, ctype: e.target.value })}
-            required
-          />
-        </Form.Group> */}
-        {/* <Form.Group className="mb-3">
-          <Form.Label>Plant image</Form.Label>
-          <Form.Select
             name='img'
             value={plant.img}
             onChange={(e) => setPlant({ ...plant, img: e.target.value })}
-            required
-          >
-            <option>Open this select menu</option>
-            <option value="Math">Math</option>
-            <option value="Science">Science</option>
-            <option value="Tech">Tech</option>
-          </Form.Select>
-        </Form.Group> */}
-        <Button type="submit">
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>
@@ -77,4 +73,10 @@ const PlantForm = ({ addPlant, setAdd }) => {
   )
 }
 
-export default PlantForm;
+const ConnectedPlantShow = (props) => (
+  <PlantConsumer>
+    { value => <PlantForm {...props} {...value} />}
+  </PlantConsumer>
+)
+
+export default ConnectedPlantShow;

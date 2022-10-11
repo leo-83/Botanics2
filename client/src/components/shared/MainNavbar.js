@@ -11,8 +11,8 @@ const MainNavbar = ({ user, handleLogout }) => {
           <Link to='/profile'>
             <li>Profile</li>
           </Link>
-          <Link to='/cats'>
-            <li>Cats</li>
+          <Link to='/wishlists'>
+            <li>Wishlist</li>
           </Link>
           <button onClick={() => handleLogout() }>
             Logout

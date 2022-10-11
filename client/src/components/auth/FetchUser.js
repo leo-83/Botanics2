@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import axios from 'axios';
-// import { AuthConsumer } from "../../providers/AuthProvider";
+import { AuthConsumer } from "../../providers/AuthProvider";
 
 class FetchUser extends Component {
   state = { loaded: false };
@@ -38,13 +38,13 @@ class FetchUser extends Component {
   }
 }
 
-export default FetchUser
-// const ConnectedFetchUser = (props) => (
-//   <AuthConsumer>
-//     { value => <FetchUser { ...props } { ...value } />}
-//   </AuthConsumer>
-// )
+// export default FetchUser
+const ConnectedFetchUser = (props) => (
+  <AuthConsumer>
+    { value => <FetchUser { ...props } { ...value } />}
+  </AuthConsumer>
+)
 
-// export default ConnectedFetchUser;
+export default ConnectedFetchUser;
 
 // *******commented out until providers are done*****

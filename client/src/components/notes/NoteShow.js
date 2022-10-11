@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import { NoteConsumer } from "../../providers/NoteProvider";
 import NoteForm from './NoteForm';
 
-const NoteShow = ({ ntime, ndate, subject, body, deleteNote, plant_id }) => {
+const NoteShow = ({ ntime, ndate, subject, body, deleteNote, plant_id, id }) => {
   const [showing, setShow] = useState(false)
   const [editing, setEdit] = useState(false);
 

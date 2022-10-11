@@ -1,7 +1,8 @@
-// import { AuthConsumer } from "../../providers/AuthProvider";
+import { AuthConsumer } from "../../providers/AuthProvider";
 import { useState } from "react";
+import Flash from "../shared/Flash";
 
-const Register = ({ handleRegister }) => {
+const Register = ({ handleRegister, errors, setErrors }) => {
   const [user, setUser] = useState({ name: '', email: '', password: '', passwordConfirmation: '' })
 
   const handleSubmit = (e) => {
@@ -15,6 +16,14 @@ const Register = ({ handleRegister }) => {
 
   return (
     <>
+    { errors ?
+        <Flash
+          variant={errors.variant}
+          msg={errors.msg}
+          setErrors={setErrors}
+        />
+      : null
+      }
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
         <label>Email</label>
@@ -56,11 +65,11 @@ const Register = ({ handleRegister }) => {
   )
 }
 
-// const ConnectedRegister = (props) => (
-//   <AuthConsumer>
-//     { value => <Register {...props} {...value} /> }
-//   </AuthConsumer>
-// )
+const ConnectedRegister = (props) => (
+  <AuthConsumer>
+    { value => <Register {...props} {...value} /> }
+  </AuthConsumer>
+)
 
-// export default ConnectedRegister;
-export default Register
+export default ConnectedRegister;
+// export default Register

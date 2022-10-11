@@ -1,4 +1,4 @@
-// import { AuthConsumer } from "../../providers/AuthProvider";
+import { AuthConsumer } from "../../providers/AuthProvider";
 import { useState } from "react";
 import Flash from "../shared/Flash";
 
@@ -45,11 +45,11 @@ const Login = ({ handleLogin, errors, setErrors  }) => {
   )
 }
 
-// const ConnectedLogin = (props) => (
-//   <AuthConsumer>
-//     { value => <Login {...props} {...value} /> }
-//   </AuthConsumer>
-// )
+const ConnectedLogin = (props) => (
+  <AuthConsumer>
+    { value => <Login {...props} {...value} /> }
+  </AuthConsumer>
+)
 
-// export default ConnectedLogin;
-export default Login
+export default ConnectedLogin;
+// export default Login

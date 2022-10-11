@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_04_014317) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_07_002525) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,12 +22,39 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_014317) do
     t.index ["plant_id"], name: "index_notes_on_plant_id"
   end
 
+  create_table "pest_diseases", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pestdiseases", force: :cascade do |t|
+    t.bigint "plant_id", null: false
+    t.string "name"
+    t.string "pdate"
+    t.string "problem"
+    t.string "treatment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plant_id"], name: "index_pestdiseases_on_plant_id"
+  end
+
   create_table "plants", force: :cascade do |t|
     t.string "name"
     t.string "img"
     t.text "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "propogations", force: :cascade do |t|
+    t.string "name"
+    t.string "method"
+    t.string "pdate"
+    t.string "results"
+    t.bigint "plant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plant_id"], name: "index_propogations_on_plant_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,6 +93,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_014317) do
   end
 
   add_foreign_key "notes", "plants"
+  add_foreign_key "pestdiseases", "plants"
+  add_foreign_key "propogations", "plants"
   add_foreign_key "wishlists", "plants"
   add_foreign_key "wishlists", "users"
 end
