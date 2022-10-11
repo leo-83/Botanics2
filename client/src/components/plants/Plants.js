@@ -34,7 +34,7 @@ const Plants = ({ addPlant, plants }) => {
 }
 
 const ConnectedPlants = (props) => (
-  <PlantsConsumer>
+  <PlantConsumer>
     { value => <Plants {...value} {...props} />}
   </PlantConsumer>
 )

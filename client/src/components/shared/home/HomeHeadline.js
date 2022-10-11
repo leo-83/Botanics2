@@ -5,7 +5,7 @@ const Headline = () => (
   <>
     <Image 
       alt='head'
-      width='100%'
+      width='700px'
       src="https://images.pexels.com/photos/2778192/pexels-photo-2778192.jpeg?auto=compress&cs=tinysrgb&w=600"
     />
     <Container>

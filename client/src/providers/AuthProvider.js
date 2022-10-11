@@ -56,25 +56,24 @@ const AuthProvider = ({ children }) => {
       })
   }
   
-  // const updateUser = (id, user) => {
-  //   let data = new FormData();
-  //   data.append('file', user.image)
-  //   data.append('fname', user.fname)
-  //   data.append('lname', user.lname)
-  //   data.append('email', user.email)
-  //   axios.put(`/api/users/${id}`, data)
-  //     .then( res => {
-  //       setUser(res.data)
-  //       window.location.reload()
-  //     })
-  //     .catch( err => {
-  //       console.log(err)
-  //       setErrors({ 
-  //         variant: 'danger',
-  //         msg: err.response.data.errors[0]
-  //       })
-  //     })
-  // }
+  const updateUser = (id, user) => {
+    let data = new FormData();
+    // data.append('file', user.image)
+    data.append('name', user.name)
+    data.append('email', user.email)
+    axios.put(`/api/users/${id}`, data)
+      .then( res => {
+        setUser(res.data)
+        window.location.reload()
+      })
+      .catch( err => {
+        console.log(err)
+        setErrors({ 
+          variant: 'danger',
+          msg: err.response.data.errors[0]
+        })
+      })
+  }
 
   return (
     <AuthContext.Provider value={{

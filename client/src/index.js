@@ -6,10 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { initMiddleware } from 'devise-axios';
-// import AuthProvider from './providers/AuthProvider';
-// import PlantProvider from './providers/PlantProvider';
-// import WishlistProvider from ./providers/WishlistProvider';
-// import NoteProvider from './providers/NoteProvider';
+import AuthProvider from './providers/AuthProvider';
+import PlantProvider from './providers/PlantProvider';
+// import WishlistProvider from './providers/WishlistProvider';
+import NoteProvider from './providers/NoteProvider';
 
 
 initMiddleware()
@@ -20,11 +20,11 @@ root.render(
     <BrowserRouter>
       <AuthProvider>
        <PlantProvider>
-         <WishlistProvider>  
+         {/* <WishlistProvider>   */}
            <NoteProvider>
              <App />
            </NoteProvider>
-         </WishlistProvider>
+         {/* </WishlistProvider> */}
        </PlantProvider>
       </AuthProvider>
     </BrowserRouter>
