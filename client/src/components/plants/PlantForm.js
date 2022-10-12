@@ -4,15 +4,15 @@ import { Button, Form } from 'react-bootstrap';
 import { useParams, useLocation } from 'react-router-dom';
 import Flash from '../shared/Flash';
 
-const PlantForm = ({ addPlant, setAdd, updatePlant, errors, setErrors, plant, setPlant }) => {
-  const [cat, setCat] = useState({ name: '', desc: '', img: '' })
+const PlantForm = ({ addPlant, setAdd, updatePlant, errors, setErrors }) => {
+  const [plant, setPlant] = useState({ name: '', desc: '', img: '' })
   const { id } = useParams();
   const location = useLocation()
    
   useEffect( () => {
     if (id) {
       const { name, desc, img } = location.state 
-      setCat({ name, desc, img })
+      setPlant({ name, desc, img })
     }
   }, [])
 
@@ -44,7 +44,7 @@ const PlantForm = ({ addPlant, setAdd, updatePlant, errors, setErrors, plant, se
           <Form.Control 
             name='name'
             value={plant.name}
-            onChange={(e) => setPlant({ ...cat, name: e.target.value })}
+            onChange={(e) => setPlant({ ...plant, name: e.target.value })}
             required  
           />
         </Form.Group>
