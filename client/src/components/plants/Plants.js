@@ -1,33 +1,44 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import PlantList from './PlantList';
-import PlantForm from './PlantForm';
-import { Modal, Button } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
 import { PlantConsumer } from '../../providers/PlantProvider';
+import PlantForm from './PlantForm';
+import { Button, Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const Plants = ({ addPlant, plants }) => {
-  const [adding, setAdd] = useState(false)
+const Plants = ({ plants, getAllPlants }) => {
+  const [adding, setAdd] = useState(false);
+
+  useEffect( () => {
+    getAllPlants()
+  }, [])
 
   return (
     <>
-      <Button onClick={() => setAdd(true)}>
+      <Button 
+        onClick={() => setAdd(true)}
+      >
         +
       </Button>
+      {/* <Link to='/randomcat'>
+        <Button>
+          Random Cat
+        </Button>
+      </Link> */}
 
       <Modal show={adding} onHide={() => setAdd(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Add Plant</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <PlantForm
-            addPlant={addPlant}
+          <PlantForm 
             setAdd={setAdd}
           />
         </Modal.Body>
       </Modal>
-      <h1>All Plants</h1>
-      <PlantList 
-        plants={plants} 
+
+      <h1>My Plants</h1>
+      <PlantList
+        plants={plants}
       />
     </>
   )
@@ -35,7 +46,7 @@ const Plants = ({ addPlant, plants }) => {
 
 const ConnectedPlants = (props) => (
   <PlantConsumer>
-    { value => <Plants {...value} {...props} />}
+    { value => <Plants {...props} {...value} /> }
   </PlantConsumer>
 )
 
