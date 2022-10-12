@@ -33,9 +33,6 @@ class Api::PlantsController < ApplicationController
         @plants = Plants.find(params[:id])
         @plants.destroy
         render json: { message: 'plants deleted' }
-        or
-        Plants.find(params[:id]).destroy
-        render json: { message: 'plants deleted' }
       end
 
       private
