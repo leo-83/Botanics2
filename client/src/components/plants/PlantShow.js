@@ -1,86 +1,68 @@
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import UserList from '../users/UserList';
+import { Card, Modal, Button, Container, Row, Col, Image } from 'react-bootstrap';
 import { PlantConsumer } from '../../providers/PlantProvider';
-import PlantForm from './PlantForm';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const PlantShow = ({}) => {
-  const { id } = useParams()
-  const [plant, setPlant] = useState({ name: '', desc: '', img: '' })
-  const [plantUsers, setPlantUsers] = useState([])
-  const [editing, setEdit] = useState(false)
+const PlantShow = ({ name, img, desc, deletePlant}) => {
+  const [showing, setShow] = useState(false)
 
-  useEffect( () => {
-    axios.get(`/api/plants/${id}`)
-      .then( res => setPlant(res.data))
-      .catch( err => console.log(err) )
-
-    axios.get(`/api/${id}/plantUsers`)  
-      .then( res => setPlantUsers(res.data))
-      .catch( err => console.log(err) )  
-  }, [])
-
-  const { name, desc, img } = plant
   return (
-<>
-      { editing ?
-        <>
-          <PlantForm
-            name={name}
-            desc={desc}
-            img={img}
-            updatePlant={updatePlant}
-            setEdit={setEdit}
-          />
+    <>
+      <Card style={{ width: '12rem' }}>
+        <Card.Img variant="top" src={img} width='200px' height='200px' />
+        <Card.Body>
+          <Card.Title>{name}</Card.Title>
           <Button 
-            variant="warning"
-            onClick={() => setEdit(false)}
+            variant="primary" 
+            onClick={() => setShow(true)}
           >
-            Cancel
+            Show
           </Button>
-        </>
-        : 
-        <>
-          <h1>{name}</h1>
-          <h3>{desc}</h3>
-          <p>{img}</p>
-          <Button 
-            variant="warning"
-            onClick={() => setEdit(true)}
-          >
-            Edit
-          </Button>
-          <Link 
-            to={`/${id}/wishlists`}
-            state={{ plantName: name }}
-          > 
-            <Button variant="success">
-              Wishlists
-            </Button>
-          </Link>
-          <Button 
-            variant="danger"
-            onClick={() => deletePlant(id)}
-          >
-            Delete
-          </Button>
-          <br />
-          <h1>Plant Owners</h1>
-          <UserList users={plantUsers} />
-        </>
-      }
+
+          <Modal show={showing} onHide={() => setShow(false)}>
+            <Modal.Header closeButton>
+              <Modal.Title>{name}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Container>
+                <Row>
+                  <Col>
+                    Name: {name}
+                    <br />
+                    Description: {desc}
+                    <br />
+                    <Link 
+                      to={`/${id}/updatePlant`}
+                      state={{ name, desc, img }}
+                    >
+                      <Button>Edit</Button>
+                    </Link>
+                    <Button
+                      onClick={() => deletePlant(id)}
+                    >
+                      Delete
+                    </Button>
+                    <Link to={`/${id}/notes`}>
+                      <Button>Notes</Button>
+                    </Link>
+                  </Col>
+                  <Col>
+                    <Image src={img} width='200px' height='200px' />
+                  </Col>
+                </Row>
+              </Container>
+            </Modal.Body>
+          </Modal>
+        </Card.Body>
+      </Card>
     </>
   )
 }
 
 const ConnectedPlantShow = (props) => (
   <PlantConsumer>
-    { value => <PlantShow {...value} {...props} />}
+    { value => <PlantShow {...props} {...value} />}
   </PlantConsumer>
 )
-
 
 export default ConnectedPlantShow;
