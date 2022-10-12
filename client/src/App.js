@@ -8,6 +8,7 @@ import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Plants from './components/plants/Plants';
 import PlantForm from './components/plants/PlantForm';
+import Profile from './components/auth/Profile';
 // import Notes from './components/notes/Notes';
 // import Wishlist from './components/wishlist/Wishlist'
 // import WishlistForm from './components/wishlist/WishlistForm'

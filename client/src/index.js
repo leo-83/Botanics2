@@ -7,15 +7,9 @@ import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { initMiddleware } from 'devise-axios';
 import AuthProvider from './providers/AuthProvider';
-<<<<<<< HEAD
 import PlantProvider from './providers/PlantProvider';
 // import WishlistProvider from './providers/WishlistProvider';
 import NoteProvider from './providers/NoteProvider';
-=======
-// import PlantProvider from './providers/PlantProvider';
-// import WishlistProvider from ./providers/WishlistProvider';
-// import NoteProvider from './providers/NoteProvider';
->>>>>>> 01f8905 (10.11 begin)
 
 
 initMiddleware()
@@ -25,7 +19,6 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-<<<<<<< HEAD
        <PlantProvider>
          {/* <WishlistProvider>   */}
            <NoteProvider>
@@ -33,15 +26,6 @@ root.render(
            </NoteProvider>
          {/* </WishlistProvider> */}
        </PlantProvider>
-=======
-       {/* <PlantProvider>
-         <WishlistProvider>  
-           <NoteProvider> */}
-             <App />
-           {/* </NoteProvider>
-         </WishlistProvider>
-       </PlantProvider> */}
->>>>>>> 01f8905 (10.11 begin)
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
