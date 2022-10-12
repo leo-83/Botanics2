@@ -1,16 +1,17 @@
-import { Container, ListGroup } from 'react-bootstrap';
+import { ListGroup, Container } from 'react-bootstrap';
 import WishlistShow from './WishlistShow';
 
-const AllWishlist = ({ Wishlists, updateWishlists, deleteWishlist, plantId }) => (
+const AllWishlist = ({ wishlist, plantId }) => (
   <Container>
+    <h1>All Wishlists</h1>
     <ListGroup variant="flush">
-      { Wishlists.map( w => 
+      { wishlist.map( n => 
         <WishlistShow 
-          key={w.id}
-          {...w}
+          key={n.id}
+          {...n}
           plantId={plantId}
-        />
-      )}
+        /> 
+      )}   
     </ListGroup>
   </Container>
 )

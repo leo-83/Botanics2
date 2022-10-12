@@ -1,15 +1,12 @@
-import { useState, useEffect } from 'react';
+import { WishlistConsumer } from "../../providers/WishlistProvider"
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import AllWishlist from './AllWishlist';
-import { useLocation } from 'react-router-dom';
-import { Modal, Button } from 'react-bootstrap';
+import AllWishlists from './AllWishlists';
+import { Button, Modal } from 'react-bootstrap';
 import WishlistForm from './WishlistForm';
-import { WishlistConsumer } from '../../providers/WishlistProvider';
 
-const Wishlists = ({ getAllWishlists, wishlists }) => {
-  const { plantId } = useParams()
-  const location = useLocation()
-  const { plantTitle } = location.state
+const Wishlist = ({ wishlist, getAllWishlists }) => {
+  const { plantId } = useParams();
   const [adding, setAdd] = useState(false)
 
   useEffect( () => {
@@ -18,33 +15,33 @@ const Wishlists = ({ getAllWishlists, wishlists }) => {
 
   return (
     <>
-      <Button onClick={() => setAdd(true)}>
+      <Button variant="primary" onClick={() => setAdd(true)}>
         +
       </Button>
 
       <Modal show={adding} onHide={() => setAdd(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Add a Wishlist</Modal.Title>
+          <Modal.Title>Add Wishlist</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <WishlistForm 
+          <NoteForm 
             setAdd={setAdd}
             plantId={plantId}
           />
         </Modal.Body>
       </Modal>
-      <h1>All wishlists for User</h1>
-      <AllWishlist 
-        wishlists={wishlists}
+      <NoteList 
+        wishlist={wishlist}
+        plantId={plantId}
       />
     </>
   )
 }
 
-const connectedWishlists = (props) => (
+const ConnectedWishlist = (props) => (
   <WishlistConsumer>
-   { value => <Wishlists {...value} {...props} />} 
+    { value => <Wishlist {...props} {...value} /> }
   </WishlistConsumer>
 )
 
-export default connectedWishlists;
+export default ConnectedWishlist;
