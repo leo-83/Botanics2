@@ -1,6 +1,7 @@
 class Api::PlantsController < ApplicationController
-    before_action :set_plant
-    before_action :set_plants, only: [:show, :update, :destroy]
+
+    before_action :authenticate_user!
+    before_action :set_plant, only: [:show, :update, :destroy]
 
     def index
         render json: Plants.all

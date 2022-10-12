@@ -13,7 +13,7 @@ import Profile from './components/auth/Profile';
 // import Wishlist from './components/wishlist/Wishlist'
 // import WishlistForm from './components/wishlist/WishlistForm'
 // import Footer from './components/shared/Footer';
-import Profile from './components/auth/Profile';
+
 
 const App = () => (
   <>
