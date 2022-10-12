@@ -1,23 +1,14 @@
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import PlantShow from './PlantShow';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const PlantList = ({ plants }) => (
   <Container>
     <Row md='4' sm='12'>
-      { plants.map( p =>
-        <Col>
-          <Card style={{ width: '10rem' }}>
-            <Card.Body>
-              <Card.Title>{p.name}</Card.Title>
-              <Card.Text>
-                {p.img}
-                {p.desc}
-              </Card.Text>
-              <Link to={`/plants/${p.id}`}>
-                <Button>Show</Button>
-              </Link>
-            </Card.Body>
-          </Card>
+      { plants.map( p => 
+        <Col key={p.id}>
+          <PlantShow
+            {...p}
+          />
         </Col>
       )}
     </Row>
