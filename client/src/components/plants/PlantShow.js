@@ -3,7 +3,7 @@ import { PlantConsumer } from '../../providers/PlantProvider';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const PlantShow = ({ name, img, desc, deletePlant}) => {
+const PlantShow = ({ id, name, img, desc, deletePlant}) => {
   const [showing, setShow] = useState(false)
 
   return (

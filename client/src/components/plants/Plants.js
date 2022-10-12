@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { PlantConsumer } from '../../providers/PlantProvider';
 import PlantForm from './PlantForm';
 import { Button, Modal } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+
 
 const Plants = ({ plants, getAllPlants }) => {
   const [adding, setAdd] = useState(false);
@@ -24,6 +24,7 @@ const Plants = ({ plants, getAllPlants }) => {
           Random Cat
         </Button>
       </Link> */}
+      
 
       <Modal show={adding} onHide={() => setAdd(false)}>
         <Modal.Header closeButton>
