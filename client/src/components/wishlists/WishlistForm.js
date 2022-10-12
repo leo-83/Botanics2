@@ -1,49 +1,63 @@
 import { useState, useEffect } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import { useResolvedPath } from 'react-router-dom';
 import { WishlistConsumer } from '../../providers/WishlistProvider';
+import { Form, Button } from 'react-bootstrap';
 
-const WishlistForm = ({ addWishlist, setAdd, id, user_id, updateWishlist, setEdit, plantId }) => {
-  const [wishlist, setWishlist] = useState({ user_id: 0 })
+const WishlistForm = ({ setAdd, addWishlist, plantId, updateWishlist, id, ndate, ntime, body, setEdit }) => {
+  const [wishlist, setWishlist] = useState({ ndate: '', ntime: '', body: '' })
 
   useEffect( () => {
     if (id) {
-      setWishlist({ user_id })
+      setWishlist({ ndate, ntime, body })
     }
   }, [])
 
-  const handleSubmit = (w) => {
-    w.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault()
     if (id) {
-      updateWishlist( plantId, id, wishlist )
+      updateWishlist(plantId, id, wishlist)
       setEdit(false)
     } else {
       addWishlist(plantId, wishlist)
       setAdd(false)
     }
-    setWishlist({ user_id: 0 })
+    setWishlist({ ndate: '', ntime: '', body: '' })
   }
 
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
-          <Form.Label>User</Form.Label>
-          <Form.Select
-            name='user_id'
-            value={wishlist.user_id}
-            onChange={(w) => setWishlist({...wishlist, user_id: parseInt(w.target.value) })}
+        <Form.Group>
+          <Form.Label>Date</Form.Label>
+          <Form.Control 
+            type="date" 
+            name="ndate"
+            value={wishlist.ndate}
+            onChange={(e) => setWishlist({ ...wishlist, ndate: e.target.value })}
             required
-          >
-            <option>Choose a user</option>
-            { ( u =>
-              <option value={u.id} key={u.id}>
-                {u.first_name} {u.last_name}
-              </option>
-            )}
-          </Form.Select>
+           />
         </Form.Group>
-        <Button type="submit">
+        <Form.Group>
+          <Form.Label>Time</Form.Label>
+          <Form.Control 
+            type="time" 
+            name="ntime"
+            value={wishlist.ntime}
+            onChange={(e) => setWishlist({ ...wishlist, ntime: e.target.value })}
+            required
+           />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Body</Form.Label>
+          <Form.Control 
+            name="body"
+            value={wishlist.body}
+            onChange={(e) => setWishlist({ ...wishlist, body: e.target.value })}
+            required
+            as="textarea" 
+            rows={3}
+           />
+        </Form.Group>
+        <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>
@@ -53,7 +67,7 @@ const WishlistForm = ({ addWishlist, setAdd, id, user_id, updateWishlist, setEdi
 
 const ConnectedWishlistForm = (props) => (
   <WishlistConsumer>
-    { value => <WishlistForm {...value} {...props} /> }
+    { value => <WishlistForm {...props} {...value} /> }
   </WishlistConsumer>
 )
 

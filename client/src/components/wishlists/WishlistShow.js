@@ -1,58 +1,83 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { ListGroup, Button } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
-import WishlistForm from './WishlistForm';
+import { ListGroup, Row, Col, Button, Modal } from "react-bootstrap";
+import { useState } from 'react';
+import Moment from 'react-moment';
+import { WishlistConsumer } from "../../providers/WishlistProvider";
 
-const WishlistShow = ({ id, plant_id, user_id, updateWishlist, deleteWishlist }) => {
-  const [user, setUser] = useState({ first_name: '' , last_name: '' })
-  const { plantId } = useParams()
-  const [editing, setEdit] = useState(false)
+const WishlistShow = ({ id, ntime, ndate, body, deleteWishlist, plantId }) => {
+  const [showing, setShow] = useState(false)
+  const [editing, setEdit] = useState(false);
 
-  useEffect( () => {
-    axios.get(`/api/users/${user_id}`)
-      .then( res => setUser( res.data ))
-      .catch( err => console.log(err))
-  }, [])
-
-  const { first_name, last_name } = user
-  const fullName = first_name + ' ' + last_name
   return (
     <>
-      { editing ?
-        <>
-          <WishlistForm 
-            id={id}
-            user_id={id}
-            updateWishlist={updateWishlist}
-            setEdit={setEdit}
-          />
-          <Button 
-            variant='warning'
-            onClick={() => setEdit(false)}
-          >
-            Cancel
-          </Button>
-        </>
-        :
-        <ListGroup.Item>
-          {fullName}
-          <Button 
-            variant='warning'
-            onClick={() => setEdit(true)}
-          >
-            Edit
-          </Button>
-          <Button 
-            variant='danger'
-            onClick={() => deleteWishlist(id)}
-          >
-            Delete
-          </Button>
-        </ListGroup.Item>
-      }
+      <ListGroup.Item>
+          <Col>
+            {body}
+          </Col>
+          <Col>
+            <Button variant="primary" onClick={() => setShow(true)}>
+              Show
+            </Button>
+
+            <Modal show={showing} onHide={() => setShow(false)}>
+              <Modal.Header closeButton>
+                <Modal.Title>Wishlist Show</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <p>
+                  Date: 
+                  <Moment format=" MM-DD-YYYY">
+                    {ndate}
+                  </Moment>
+                </p>
+                <p>
+                  Time: 
+                  <Moment format=" hh:MM a">
+                    {ntime}
+                  </Moment>
+                </p>
+                <p>
+                  Notes: {body}
+                </p>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="primary" onClick={() => setEdit(true)}>
+                  Edit
+                </Button>
+
+                <Modal show={editing} onHide={() => setEdit(false)}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Edit Wishlist</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <NoteForm
+                      id={id}
+                      plantId={plantId}
+                      ndate={ndate}
+                      ntime={ntime}
+                      body={body}
+                      setEdit={setEdit}
+                    />
+                  </Modal.Body>
+                </Modal>
+                <br />
+                <Button
+                  onClick={() => deleteWishlist(plantId, id)}
+                >
+                  Delete
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </Col>
+        </Row>
+      </ListGroup.Item>
     </>
   )
 }
 
-export default WishlistShow;
+const ConnectedWishlistShow = (props) => (
+  <WishlistConsumer>
+    { value => <WishlistShow {...props} {...value} /> } 
+  </WishlistConsumer>
+)
+
+export default ConnectedWishlistShow;
