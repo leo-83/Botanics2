@@ -38,7 +38,7 @@ class FetchUser extends Component {
   }
 }
 
-export default FetchUser
+// export default FetchUser
 const ConnectedFetchUser = (props) => (
   <AuthConsumer>
     { value => <FetchUser { ...props } { ...value } />}

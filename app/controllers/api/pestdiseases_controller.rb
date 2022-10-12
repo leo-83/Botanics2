@@ -33,14 +33,15 @@ class Api::PestdiseasesController < ApplicationController
         @pestdisease = Pestdisease.find(params[:id])
         @pestdisease.destroy
         render json: { message: 'pestdisease deleted' }
-        or
-        Pestdisease.find(params[:id]).destroy
-        render json: { message: 'pestdisease deleted' }
+       
       end
 
       private
-  def pestdisease_params
-    params.require(:pestdisease).permit(:name, :pdate, :problem :treatment)
-  end
+        def set_plant
+          @plant = Plant.find(params[:plant_id])
+
+        def pestdisease_params
+          params.require(:pestdisease).permit(:name, :pdate, :problem :treatment)
+      end
 
 end

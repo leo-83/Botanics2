@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
 
-  has_many :plants
+  has_many :plants, through: :wishlists
   has_many :wishlists, dependent: :destroy
   
   validates :name, presence: true

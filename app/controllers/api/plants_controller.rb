@@ -1,44 +1,48 @@
 class Api::PlantsController < ApplicationController
-    before_action :set_plant
-    before_action :set_plants, only: [:show, :update, :destroy]
+
+    before_action :authenticate_user!
+    before_action :set_plant, only: [:show, :update, :destroy]
 
     def index
-        render json: Plants.all
+        render json: Plant.all
       end
 
       def show
-        @Plants = Plants.find(params[:id])
-        render json: @plants
+        @plant = Plant.find(params[:id])
+        render json: @plant
       end
 
       def create
-        @plants = Plants.new(plants_params)
-        if @plants.save
-          render json: @plants
+        @plant = Plants.new(plant_params)
+        if @plant.save
+          render json: @plant
         else
-          render json: { errors: @plants.errors }, status: :unprocessable_entity
+          render json: { errors: @plant.errors }, status: :unprocessable_entity
         end
       end
 
       def update
-        @plants = Plants.find(params[:id])
-        if @plants.update(plants_params)
-          render json: @plants
+        @plant = Plant.find(params[:id])
+        if @plant.update(plant_params)
+          render json: @plant
         else
-          render json: { errors: @plants.errors }, status: :unprocessable_entity
+          render json: { errors: @plant.errors }, status: :unprocessable_entity
         end
       end
 
       def destroy
-        @plants = Plants.find(params[:id])
-        @plants.destroy
+        @plant = Plant.find(params[:id])
+        @plant.destroy
         render json: { message: 'plants deleted' }
       end
 
       private
-  def plants_params
-    params.require(:plants).permit(:name, :image, :desc)
-  end
-
+      def set_plant
+        @plant = Plant.find(params[:id])
+      end
+      def plant_params
+        params.require(:plant).permit(:name, :img, :desc)
+      end
 end
+
 
