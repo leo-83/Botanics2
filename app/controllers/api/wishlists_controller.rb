@@ -1,4 +1,4 @@
-class Api::EnrollmentsController < ApplicationController
+class Api::WishlistsController < ApplicationController
   before_action :set_plant
   before_action :set_wishlist, except: [:index, :create]
 
