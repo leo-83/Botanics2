@@ -13,7 +13,7 @@ class Api::PlantsController < ApplicationController
       end
 
       def create
-        @plant = Plants.new(plant_params)
+        @plant = Plant.new(plant_params)
         if @plant.save
           render json: @plant
         else
