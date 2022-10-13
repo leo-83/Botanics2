@@ -1,18 +1,17 @@
 class Api::PestdiseasesController < ApplicationController
     before_action :set_plant
-    before_action :set_pestdiseases, only: [:show, :update, :destroy]
+    before_action :set_pestdisease, only: [:show, :update, :destroy]
 
     def index
-        render json: Pestdisease.all
+        render json: @plant.pestdiseases
       end
 
       def show
-        @Pestdisease = Pestdisease.find(params[:id])
         render json: @pestdisease
       end
 
       def create
-        @pestdisease = Pestdisease.new(pestdisease_params)
+        @pestdisease = @plant.pestdiseases.new(pestdisease_params)
         if @pestdisease.save
           render json: @pestdisease
         else
@@ -21,7 +20,6 @@ class Api::PestdiseasesController < ApplicationController
       end
 
       def update
-        @pestdisease = Pestdisease.find(params[:id])
         if @pestdisease.update(pestdisease_params)
           render json: @pestdisease
         else
@@ -30,18 +28,22 @@ class Api::PestdiseasesController < ApplicationController
       end
 
       def destroy
-        @pestdisease = Pestdisease.find(params[:id])
         @pestdisease.destroy
         render json: { message: 'pestdisease deleted' }
        
       end
 
-      private
-        def set_plant
-          @plant = Plant.find(params[:plant_id])
+      private 
+    def pestdisease_params
+      params.require(:pestdisease).permit(:user_id)
+    end
 
-        def pestdisease_params
-          params.require(:pestdisease).permit(:name, :pdate, :problem :treatment)
-      end
+    def set_plant
+      @plant = Plant.find(params[:plant_id])
+    end
+
+    def set_pestdisease
+      @pestdisease = @plant.enrollments.find(params[:id])
+    end
 
 end

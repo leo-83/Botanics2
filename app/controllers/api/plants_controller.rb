@@ -8,7 +8,6 @@ class Api::PlantsController < ApplicationController
       end
 
       def show
-        @plant = Plant.find(params[:id])
         render json: @plant
       end
 
@@ -22,7 +21,6 @@ class Api::PlantsController < ApplicationController
       end
 
       def update
-        @plant = Plant.find(params[:id])
         if @plant.update(plant_params)
           render json: @plant
         else
@@ -31,17 +29,17 @@ class Api::PlantsController < ApplicationController
       end
 
       def destroy
-        @plant = Plant.find(params[:id])
         @plant.destroy
-        render json: { message: 'plants deleted' }
+        render json: { message: 'plant deleted' }
       end
 
-      private
+      private 
+      def plant_params
+        params.require(:plant).permit(:name, :desc, :img)
+      end
+  
       def set_plant
         @plant = Plant.find(params[:id])
-      end
-      def plant_params
-        params.require(:plant).permit(:name, :img, :desc)
       end
 end
 

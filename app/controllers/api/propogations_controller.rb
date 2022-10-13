@@ -12,11 +12,10 @@ end
 
 def create
   @propogation = @plant.propogations.new(propogation_params)
-  if @note.save
+  if @propogation.save
     render json: @propogation
   else
-    render json: { errors: @propogation.errors }, 
-    status: :unprocessable_entity
+    render json: { errors: @propogation.errors }, status: :unprocessable_entity
   end
 end
 
@@ -24,8 +23,7 @@ def update
   if @propogation.update(propogation_params)
     render json: @propogation
   else
-    render json: { errors: @propogation.errors }, 
-    status: :unprocessable_entity
+    render json: { errors: @propogation.errors }, status: :unprocessable_entity
   end
 end
 
@@ -34,14 +32,18 @@ def destroy
   render json: { message: 'propogation deleted' }
 end
 
-private
-  def propogations_params
-    params.require(:propogation).permit(:name, :method, :pdate)
-  end
+private 
+    def propogation_params
+      params.require(:propogation).permit(:user_id)
+    end
 
-  def set_propogation
-    @propogation = Propogation.find(params[:plant_id])
-  end
+    def set_plant
+      @plant = Plant.find(params[:plant_id])
+    end
+
+    def set_propogation
+      @propogation = @plant.propogations.find(params[:id])
+    end
 
 end
 
