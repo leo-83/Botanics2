@@ -18,15 +18,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
-       <PlantProvider>
-         {/* <WishlistProvider>   */}
-           <NoteProvider>
-             <App />
-           </NoteProvider>
-         {/* </WishlistProvider> */}
-       </PlantProvider>
-      </AuthProvider>
+      <App />
     </BrowserRouter>
   </React.StrictMode>
 );

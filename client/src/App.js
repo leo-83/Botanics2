@@ -4,14 +4,6 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Nomatch from './components/shared/Nomatch';
 import MainNavbar from './components/shared/MainNavbar';
-import FetchUser from './components/auth/FetchUser';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import Plants from './components/plants/Plants';
-import PlantForm from './components/plants/PlantForm';
-import Profile from './components/auth/Profile';
-// import Notes from './components/notes/Notes';
-// import Wishlist from './components/wishlist/Wishlist'
-// import WishlistForm from './components/wishlist/WishlistForm'
 // import Footer from './components/shared/Footer';
 import Profile from './components/auth/Profile';
 
@@ -33,6 +25,7 @@ const App = () => (
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route path='/*' element={<Nomatch />} />
+      <Route path='/:plantId/wishlists' element={ <Wishlists /> } />
     </Routes>
     </>
     </FetchUser>
