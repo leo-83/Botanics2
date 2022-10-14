@@ -1,16 +1,15 @@
-import PlantList from './PlantList';
+import PropogationList from './PropogationList';
 import { useEffect, useState } from 'react';
-import { PlantConsumer } from '../../providers/PlantProvider';
-import PlantForm from './PlantForm';
+import { PropogationConsumer } from '../../providers/PropogationProvider';
+import PropogationForm from './PropogationForm';
 import { Button, Modal } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 
-const Plants = ({ plants, getAllPlants }) => {
+const Propogations = ({ propogations, getAllPropogations }) => {
   const [adding, setAdd] = useState(false);
 
   useEffect( () => {
-    getAllPlants()
+    getAllPropogations()
   }, [])
 
   return (
@@ -29,27 +28,27 @@ const Plants = ({ plants, getAllPlants }) => {
 
       <Modal show={adding} onHide={() => setAdd(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Plant</Modal.Title>
+          <Modal.Title>Add Propogation</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <PlantForm 
+          <PropogationForm 
             setAdd={setAdd}
           />
         </Modal.Body>
       </Modal>
 
-      <h1>My Plants</h1>
-      <PlantList
-        plants={plants}
+      <h1>My Propogations</h1>
+      <PropogationList
+        propogations={propogations}
       />
     </>
   )
 }
 
-const ConnectedPlants = (props) => (
-  <PlantConsumer>
-    { value => <Plants {...props} {...value} /> }
-  </PlantConsumer>
+const ConnectedPropogations = (props) => (
+  <PropogationConsumer>
+    { value => <Propogations {...props} {...value} /> }
+  </PropogationConsumer>
 )
 
-export default ConnectedPlants;
+export default ConnectedPropogations;

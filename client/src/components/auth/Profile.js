@@ -1,19 +1,19 @@
 import { AuthConsumer } from "../../providers/AuthProvider";
 import { useState, useEffect } from 'react';
 import { Form, Row, Col, Container, Image, Button } from 'react-bootstrap';
-// // Import React FilePond
-// import { FilePond, registerPlugin } from "react-filepond";
+// import React FilePond
+import { FilePond, registerPlugin } from "react-filepond";
 
-// // Import FilePond styles
-// import "filepond/dist/filepond.min.css";
+// Import FilePond styles
+import "filepond/dist/filepond.min.css";
 
 // // Import the Image EXIF Orientation and Image Preview plugins
-// import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
-// import FilePondPluginImagePreview from "filepond-plugin-image-preview";
-// import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
+import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
 // // Register the plugins
-// registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const defaultImage = 'https://images.pexels.com/photos/113335/pexels-photo-113335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
 
@@ -34,17 +34,17 @@ const Profile = ({ user, updateUser }) => {
     setFormValue({ ...formVals, image: null })
   }
 
-//   const handleFileUpdate = (fileItems) => {
-//     if (fileItems.length !== 0) {
-//       setFile(fileItems)
-//       setFormValue({ ...formVals, image: fileItems[0].file })
-//     }
-//   }
+  const handleFileUpdate = (fileItems) => {
+    if (fileItems.length !== 0) {
+      setFile(fileItems)
+      setFormValue({ ...formVals, image: fileItems[0].file })
+    }
+  }
 
-//   const handleFileRemoved = (e, file) => {
-//     setFile(null)
-//     setFormValue({ ...formVals, image: null })
-//   }
+  const handleFileRemoved = (e, file) => {
+    setFile(null)
+    setFormValue({ ...formVals, image: null })
+  }
 
   const editForm = () => {
     return(
@@ -52,14 +52,14 @@ const Profile = ({ user, updateUser }) => {
         <h1>Edit User</h1>
         <Col md='4'>
           {/* drag and drop */}
-          {/* <FilePond
+          <FilePond
             files={file}
             onupdatefiles={handleFileUpdate}
             onremovefile={handleFileRemoved}
             allowMultiple={false}
             name="image"
             labelIdle='Drag and Drop your files or <span class="filepond--label-action">Browse</span>'
-          /> */}
+          />
         </Col>
         <Col md='8'>
           <Form.Group>
@@ -112,7 +112,7 @@ const Profile = ({ user, updateUser }) => {
           <Button
             onClick={() => setEditing(!editing )}
           >
-            { editing ? 'Cancel' : 'Edit' }
+            { editing ? 'Cancel' : 'Edit' } 
           </Button>
         </Col>
       </Row>

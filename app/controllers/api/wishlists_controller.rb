@@ -11,7 +11,7 @@ class Api::WishlistsController < ApplicationController
   end
 
   def create
-    @wishlist = @plant.wishlist.new(wishlist_params)
+    @wishlist = @plant.wishlists.new(wishlist_params)
     if @wishlist.save
       render json: @wishlist
     else
