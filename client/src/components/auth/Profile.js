@@ -20,7 +20,7 @@ const defaultImage = 'https://images.pexels.com/photos/113335/pexels-photo-11333
 const Profile = ({ user, updateUser }) => {
   const [editing, setEditing] = useState(false);
   const [formVals, setFormValue] = useState({ name: '', email: '', image: null })
-  const [file, setFile] = useState()
+  // const [file, setFile] = useState()
 
   useEffect( () => {
     const { name, email, image } = user 

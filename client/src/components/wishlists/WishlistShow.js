@@ -10,6 +10,7 @@ const WishlistShow = ({ id, ntime, ndate, body, deleteWishlist, plantId }) => {
   return (
     <>
       <ListGroup.Item>
+        <Row>
           <Col>
             {body}
           </Col>
