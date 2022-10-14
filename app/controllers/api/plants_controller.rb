@@ -1,12 +1,7 @@
 class Api::PlantsController < ApplicationController
-<<<<<<< .merge_file_disJtY
 
     before_action :authenticate_user!
     before_action :set_plant, only: [:show, :update, :destroy]
-=======
-    before_action :set_plant
-    before_action :set_plants, only: [:show, :update, :destroy]
->>>>>>> .merge_file_pkK6fm
 
     def index
         render json: Plant.all
