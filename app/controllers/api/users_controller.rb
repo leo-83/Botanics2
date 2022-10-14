@@ -22,7 +22,7 @@ class Api::UsersController < ApplicationController
           else 
             render json: { errors: user.errors.full_messages}, status: 422
           end
-        rescue => e 
+        rescue => e             
           render json: { errors: e }, status: 422
         end
       else
