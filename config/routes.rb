@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :notes
     end
 
-    get '/randomplant', to: 'cats#randomplants'
+    get '/randomplant', to: 'plants#randomplants'
     resources :notes do 
       resources :wishlist
     end
