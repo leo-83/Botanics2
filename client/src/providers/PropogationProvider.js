@@ -7,17 +7,12 @@ export const PropogationContext = React.createContext();
 export const PropogationConsumer = PropogationContext.Consumer;
 
 const PropogationProvider = ({ children }) => {
-  const [Propogation
-  s, setPropogation
-  s] = useState([])
+  const [Propogations, setPropogations] = useState([])
   const [unpropogatedUsers, setUsers] = useState([])
 
-  const getAllPropogation
-s = (plantId) => {
-    axios.get(`/api/plants/${plantId}/Propogation
-  s`)
-      .then( res => setPropogation
-      s(res.data))
+  const getAllPropogations = (plantId) => {
+    axios.get(`/api/plants/${plantId}/Propogations`)
+      .then( res => setPropogations(res.data))
       .catch( err => console.log(err))
   }
 
@@ -29,64 +24,48 @@ s = (plantId) => {
 
   const addPropogation = (plantId, Propogation
   ) => {
-    axios.post(`/api/plants/${plantId}/Propogation
-  s`, { Propogation
+    axios.post(`/api/plants/${plantId}/Propogations`, { Propogation
    })
-      .then( res => setPropogation
-      s([...Propogation
-      s, res.data]))
+      .then( res => setPropogations([...Propogations, res.data]))
       .catch( err => console.log(err))
   }
 
   const updatePropogation = (plantId, id, Propogation
   ) => {
-    axios.put(`/api/plants/${plantId}/Propogation
-  s/${id}`, { Propogation
+    axios.put(`/api/plants/${plantId}/Propogations/${id}`, { Propogation
    })
       .then( res => {
-        const newUpdatedPropogation
-      s = Propogation
-      s.map( e => {
+        const newUpdatedPropogations = Propogations.map( e => {
           if (e.id == id) {
             return res.data
           }
           return e
         })
-        setPropogation
-      s(newUpdatedPropogation
-        s)
-        // navigate(`/${plantId}/Propogation
-      s`, { state: { plantTitle } })
+        setPropogations(newUpdatedPropogations)
+        // navigate(`/${plantId}/Propogations`, { state: { plantTitle } })
         window.location.reload()
       })
       .catch( err => console.log(err))
   } 
 
   const deletePropogation = (plantId, id) => {
-    axios.delete(`/api/plants/${plantId}/Propogation
-  s/${id}`)
-      .then( res => setPropogation
-      s( Propogation
-      s.filter( e => e.id !== id )))
+    axios.delete(`/api/plants/${plantId}/Propogations/${id}`)
+      .then( res => setPropogations( Propogations.filter( e => e.id !== id )))
       .catch( err => console.log(err))
   }
 
   return (
-    <Propogation
-  Context.Provider value={{
-      Propogation
-    s,
+    <PropogationContext.Provider value={{
+      Propogations,
       UnpropogatedUsers,
-      getAllPropogation
-    s,
+      getAllPropogations,
       getAllUnpropogatedUsers, 
       addPropogation,
       updatePropogation,
       deletePropogation,
     }}>
       { children }
-    </Propogation
-  Context.Provider>
+    </PropogationContext.Provider>
   )
 }
 

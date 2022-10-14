@@ -1,7 +1,7 @@
 import { WishlistConsumer } from "../../providers/WishlistProvider"
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import AllWishlists from './AllWishlists';
+import AllWishlist from './AllWishlist';
 import { Button, Modal } from 'react-bootstrap';
 import WishlistForm from './WishlistForm';
 
@@ -24,13 +24,13 @@ const Wishlist = ({ wishlist, getAllWishlists }) => {
           <Modal.Title>Add Wishlist</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <NoteForm 
+          <WishlistForm 
             setAdd={setAdd}
             plantId={plantId}
           />
         </Modal.Body>
       </Modal>
-      <NoteList 
+      <AllWishlist 
         wishlist={wishlist}
         plantId={plantId}
       />

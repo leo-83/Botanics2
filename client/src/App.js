@@ -10,8 +10,8 @@ import Plants from './components/plants/Plants';
 import PlantForm from './components/plants/PlantForm';
 import Profile from './components/auth/Profile';
 // import Notes from './components/notes/Notes';
-import Wishlists from './components/wishlist/wishlists';
-import WishlistForm from './components/wishlist/WishlistForm'
+import Wishlists from './components/wishlists/Wishlist';
+import WishlistForm from './components/wishlists/WishlistForm'
 // import Footer from './components/shared/Footer';
 
 
