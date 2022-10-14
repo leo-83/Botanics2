@@ -1,9 +1,9 @@
 import { WishlistConsumer } from "../../providers/WishlistProvider"
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import AllWishlist from './AllWishlist';
-import { Button, Modal } from 'react-bootstrap';
-import WishlistForm from './WishlistForm';
+// import AllWishlist from './AllWishlist';
+import { Button } from 'react-bootstrap';
+// import WishlistForm from './WishlistForm';
 // import NoteForm from './NoteForm';
 // import NoteList from './NoteList';
 
