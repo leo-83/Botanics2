@@ -1,92 +1,84 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export const PropogationContext = React.createContext();
 
-export const PropogationConsumer = PropogationContext.Consumer;
+export const PropogationConsumer = PropogationContext.Consumer; 
 
 const PropogationProvider = ({ children }) => {
-  const [Propogation
-  s, setPropogation
-  s] = useState([])
-  const [unpropogatedUsers, setUsers] = useState([])
+  const [propogations, setPropogations] = useState([])
+  const [errors, setErrors] = useState(null)
+  const navigate = useNavigate()
 
-  const getAllPropogation
-s = (plantId) => {
-    axios.get(`/api/plants/${plantId}/Propogation
-  s`)
-      .then( res => setPropogation
-      s(res.data))
-      .catch( err => console.log(err))
+  const getAllPropogations = (plantId) => {
+    axios.get(`/api/plants/${plantId}/propogations`)
+      .then( res => setPropogations(res.data))
+      .catch(err => {
+        setErrors({ 
+          variant: 'danger',
+          msg: err.response.data.errors[0]
+        })
+      })
   }
 
-  const getAllUnpropogatedUsers = (plantId) => {
-    axios.get(`/api/plants/${plantId}/Unpropogated`)
-      .then( res => setUsers(res.data))
-      .catch( err => console.log(err))
+  const addPropogation = (plantId, propogation) => {
+    axios.post(`/api/plants/${plantId}/propogations`, { propogation })
+      .then( res => setPropogations([...propogations, res.data]))
+      .catch(err => {
+        setErrors({ 
+          variant: 'danger',
+          msg: Object.keys(err.response.data.errors)[0] + " " + Object.values(err.response.data.errors)[0][0]
+        })
+      })
   }
 
-  const addPropogation = (plantId, Propogation
-  ) => {
-    axios.post(`/api/plants/${plantId}/Propogation
-  s`, { Propogation
-   })
-      .then( res => setPropogation
-      s([...Propogation
-      s, res.data]))
-      .catch( err => console.log(err))
-  }
-
-  const updatePropogation = (plantId, id, Propogation
-  ) => {
-    axios.put(`/api/plants/${plantId}/Propogation
-  s/${id}`, { Propogation
-   })
+  const updatePropogation = (plantId, id, propogation) => {
+    axios.put(`/api/plants/${plantId}/propogations/${id}`, { propogation })
       .then( res => {
-        const newUpdatedPropogation
-      s = Propogation
-      s.map( e => {
-          if (e.id == id) {
+        const newUpdatedPropogations = propogations.map(p => {
+          if (p.id !== id) {
             return res.data
           }
-          return e
+          return p
         })
-        setPropogation
-      s(newUpdatedPropogation
-        s)
-        // navigate(`/${plantId}/Propogation
-      s`, { state: { plantTitle } })
+        setPropogations(newUpdatedPropogations)
+        navigate(`/${plantId}/propogations`)
         window.location.reload()
       })
-      .catch( err => console.log(err))
-  } 
-
-  const deletePropogation = (plantId, id) => {
-    axios.delete(`/api/plants/${plantId}/Propogation
-  s/${id}`)
-      .then( res => setPropogation
-      s( Propogation
-      s.filter( e => e.id !== id )))
-      .catch( err => console.log(err))
+      .catch(err => {
+        setErrors({ 
+          variant: 'danger',
+          msg: Object.keys(err.response.data.errors)[0] + " " + Object.values(err.response.data.errors)[0][0]
+        })
+      })
   }
 
+  const deletePropogation = (plantId, id) => {
+    axios.delete(`/api/plants/${plantId}/propogation/${id}`)
+      .then(res => {
+        setPropogations(propogations.filter(p => p.id !== id))
+      })
+      .catch(err => {
+        setErrors({ 
+          variant: 'danger',
+          msg: err.response.data.errors[0]
+        })
+      })
+  }
+  
   return (
-    <Propogation
-  Context.Provider value={{
-      Propogation
-    s,
-      UnpropogatedUsers,
-      getAllPropogation
-    s,
-      getAllUnpropogatedUsers, 
-      addPropogation,
+    <PropogationContext.Provider value={{
+      propogations,
+      errors,
+      setErrors, 
+      getAllPropogations,
+      addPropogation, 
       updatePropogation,
       deletePropogation,
     }}>
       { children }
-    </Propogation
-  Context.Provider>
+    </PropogationContext.Provider>
   )
 }
 

@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { WishlistConsumer } from '../../providers/WishlistProvider';
 import { Form, Button } from 'react-bootstrap';
 
-const WishlistForm = ({ setAdd, addWishlist, plantId, updateWishlist, id, ndate, ntime, body, setEdit }) => {
+const WishlistForm = ({ setAdd, addWishlist, plantId, updateWishlist, id, body, setEdit }) => {
   const [wishlist, setWishlist] = useState({ ndate: '', ntime: '', body: '' })
 
   useEffect( () => {
     if (id) {
-      setWishlist({ ndate, ntime, body })
+      setWishlist({ body })
     }
   }, [])
 
