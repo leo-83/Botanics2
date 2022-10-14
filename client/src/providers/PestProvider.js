@@ -7,17 +7,12 @@ export const PestdiseaseContext = React.createContext();
 export const PestConsumer = PestContext.Consumer;
 
 const PestProvider = ({ children }) => {
-  const [Pest
-  s, setPest
-  s] = useState([])
+  const [Pests, setPests] = useState([])
   const [unPestedUsers, setUsers] = useState([])
 
-  const getAllPest
-s = (plantId) => {
-    axios.get(`/api/plants/${plantId}/Pest
-  s`)
-      .then( res => setPest
-      s(res.data))
+  const getAllPests = (plantId) => {
+    axios.get(`/api/plants/${plantId}/Pests`)
+      .then( res => setPests(res.data))
       .catch( err => console.log(err))
   }
 
@@ -29,64 +24,45 @@ s = (plantId) => {
 
   const addPest = (plantId, Pest
   ) => {
-    axios.post(`/api/plants/${plantId}/Pest
-  s`, { Pest
-   })
-      .then( res => setPest
-      s([...Pest
-      s, res.data]))
+    axios.post(`/api/plants/${plantId}/Pests`, { Pest})
+      .then( res => setPests([...Pests, res.data]))
       .catch( err => console.log(err))
   }
 
-  const updatePest = (plantId, id, Pest
-  ) => {
-    axios.put(`/api/plants/${plantId}/Pest
-  s/${id}`, { Pest
-   })
+  const updatePest = (plantId, id, Pest) => {
+    axios.put(`/api/plants/${plantId}/Pests/${id}`, { Pest })
       .then( res => {
-        const newUpdatedPest
-      s = Pest
-      s.map( e => {
+        const newUpdatedPests = Pests.map( e => {
           if (e.id == id) {
             return res.data
           }
           return e
         })
-        setPest
-      s(newUpdatedPest
-        s)
-        // navigate(`/${plantId}/Pest
-      s`, { state: { plantTitle } })
+        setPests(newUpdatedPests)
+        // navigate(`/${plantId}/Pests`, { state: { plantTitle } })
         window.location.reload()
       })
       .catch( err => console.log(err))
   } 
 
   const deletePest = (plantId, id) => {
-    axios.delete(`/api/plants/${plantId}/Pest
-  s/${id}`)
-      .then( res => setPest
-      s( Pest
-      s.filter( e => e.id !== id )))
+    axios.delete(`/api/plants/${plantId}/Pests/${id}`)
+      .then( res => setPests( Pests.filter( e => e.id !== id )))
       .catch( err => console.log(err))
   }
 
   return (
-    <Pest
-  Context.Provider value={{
-      Pest
-    s,
+    <PestContext.Provider value={{
+      Pests,
       unPestedUsers,
-      getAllPest
-    s,
+      getAllPests,
       getAllUnPestedUsers, 
       addPest,
       updatePest,
       deletePest,
     }}>
       { children }
-    </Pest
-  Context.Provider>
+    </PestContext.Provider>
   )
 }
 
