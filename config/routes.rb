@@ -8,9 +8,10 @@ Rails.application.routes.draw do
     resources :plants do
       resources :notes
     end
-  end
+
     resources :notes do 
       resources :wishlist
+    end
     resources :users, only: :update
   end 
 end
