@@ -37,7 +37,7 @@ const PlantProvider = ({ children }) => {
     axios.put(`/api/plants/${id}`, { plant })
       .then( res => {
         const newUpdatedPlants = plants.map( p => {
-          if (p.id == id) {
+          if (p.id === id) {
             return res.data 
           }
           return p
