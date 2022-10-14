@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Moment from 'react-moment';
 import { WishlistConsumer } from "../../providers/WishlistProvider";
 
-const WishlistShow = ({ id, ntime, ndate, body, deleteWishlist, plantId }) => {
+const WishlistShow = ({ id, body, deleteWishlist, plantId }) => {
   const [showing, setShow] = useState(false)
   const [editing, setEdit] = useState(false);
 
