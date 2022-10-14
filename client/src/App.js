@@ -10,10 +10,9 @@ import Plants from './components/plants/Plants';
 import PlantForm from './components/plants/PlantForm';
 import Profile from './components/auth/Profile';
 // import Notes from './components/notes/Notes';
-import Wishlists from './components/wishlist/wishlists';
-import WishlistForm from './components/wishlist/WishlistForm'
+import Wishlist from './components/wishlists/Wishlist';
+import WishlistForm from './components/wishlists/WishlistForm'
 // import Footer from './components/shared/Footer';
-
 
 const App = () => (
   <>
@@ -25,10 +24,10 @@ const App = () => (
       <Route path='/' element={<ProtectedRoute /> }>
       <Route path='/plants' element={<Plants />} /> 
       <Route path='/:id/updatePlant' element={<PlantForm />} />
-        <Route path='/wishlists' element={<Wishlists />} />
+        <Route path='/wishlist' element={<Wishlist />} />
         <Route path='/:id/updateWishlist' element={<WishlistForm />} />
-        {/* <Route path='/wishlists' element={<Wishlists />} />  */}
-        {/* <Route path='/:id/updateWishlist' element={<WishlistForm />} /> */}
+        <Route path='/wishlist' element={<Wishlist />} /> 
+        <Route path='/:id/updateWishlist' element={<WishlistForm />} />
         {/* <Route path='/:plantId/notes' element={<Notes />} /> */}
       <Route path='/profile' element={<Profile />} />
       </Route>

@@ -2,6 +2,7 @@ import { ListGroup, Row, Col, Button, Modal } from "react-bootstrap";
 import { useState } from 'react';
 import Moment from 'react-moment';
 import { WishlistConsumer } from "../../providers/WishlistProvider";
+import WishlistForm from './WishlistForm';
 
 const WishlistShow = ({ id, ntime, ndate, body, deleteWishlist, plantId }) => {
   const [showing, setShow] = useState(false)
@@ -50,7 +51,7 @@ const WishlistShow = ({ id, ntime, ndate, body, deleteWishlist, plantId }) => {
                     <Modal.Title>Edit Wishlist</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <NoteForm
+                    <WishlistForm
                       id={id}
                       plantId={plantId}
                       ndate={ndate}
