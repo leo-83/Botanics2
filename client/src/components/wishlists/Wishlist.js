@@ -1,9 +1,11 @@
 import { WishlistConsumer } from "../../providers/WishlistProvider"
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import AllWishlists from './AllWishlists';
+import AllWishlist from './AllWishlist';
 import { Button, Modal } from 'react-bootstrap';
 import WishlistForm from './WishlistForm';
+// import NoteForm from './NoteForm';
+// import NoteList from './NoteList';
 
 const Wishlist = ({ wishlist, getAllWishlists }) => {
   const { plantId } = useParams();
@@ -19,7 +21,7 @@ const Wishlist = ({ wishlist, getAllWishlists }) => {
         +
       </Button>
 
-      <Modal show={adding} onHide={() => setAdd(false)}>
+      {/* <Modal show={adding} onHide={() => setAdd(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Add Wishlist</Modal.Title>
         </Modal.Header>
@@ -33,7 +35,7 @@ const Wishlist = ({ wishlist, getAllWishlists }) => {
       <NoteList 
         wishlist={wishlist}
         plantId={plantId}
-      />
+      /> */}
     </>
   )
 }
