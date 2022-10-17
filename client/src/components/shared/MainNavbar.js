@@ -15,7 +15,7 @@ const MainNavbar = ({ user, handleLogout }) => {
             <li>Wishlist</li>
           </Link>
           <Link to='/plants'>
-            <li>MY Plants</li>
+            <li>All Plants</li>
           </Link>
           <button onClick={() => handleLogout() }>
             Logout
@@ -30,7 +30,7 @@ const MainNavbar = ({ user, handleLogout }) => {
             <li>Login</li>
           </Link>
           <Link to='/register'>
-            <li>SignUp</li>
+            <li>Sign-up</li>
           </Link>
         </>
       )
