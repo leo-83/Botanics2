@@ -1,32 +1,35 @@
-// Import React FilePond
+import { AuthConsumer } from "../../providers/AuthProvider";
+import { useState, useEffect } from 'react';
+import { Form, Row, Col, Container, Image, Button } from 'react-bootstrap';
+// import React FilePond
 import { FilePond, registerPlugin } from "react-filepond";
 
 // Import FilePond styles
 import "filepond/dist/filepond.min.css";
 
-// Import the Image EXIF Orientation and Image Preview plugins
+// // Import the Image EXIF Orientation and Image Preview plugins
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
-// Register the plugins
+// // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
-const defaultImage = 'https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80';
+const defaultImage = 'https://images.pexels.com/photos/113335/pexels-photo-113335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
 
-const Profile = ({ plant, updatePlant }) => {
+const Profile = ({ user, updateUser }) => {
   const [editing, setEditing] = useState(false);
-  const [formVals, setFormValue] = useState({ name: '', img: '', desc: null })
+  const [formVals, setFormValue] = useState({ name: '', email: '', image: null })
   const [file, setFile] = useState()
 
   useEffect( () => {
-    const { name, img, desc, } = user 
-    setFormValue({ name, img, desc, })
+    const { name, email, image } = user 
+    setFormValue({ name, email, image })
   }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    updatePlant(user.id, formVals);
+    updateUser(user.id, formVals);
     setEditing(false)
     setFormValue({ ...formVals, image: null })
   }

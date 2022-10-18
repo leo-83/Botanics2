@@ -15,11 +15,11 @@ const Plants = ({ plants, getAllPlants }) => {
 
   return (
     <>
-      <Button 
-        onClick={() => setAdd(true)}
+      <Button onClick={() => setAdd(true)}
       >
         +
       </Button>
+
       <Link to='/randoplant'>
         <Button>
           Rando Plant
@@ -32,13 +32,11 @@ const Plants = ({ plants, getAllPlants }) => {
           <Modal.Title>Add Plant</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <PlantForm 
-            setAdd={setAdd}
-          />
+          <PlantForm addPlant={adding} setAdd={setAdd}/>
         </Modal.Body>
       </Modal>
 
-      <h1>My Plants</h1>
+      <h1>All Plants</h1>
       <PlantList
         plants={plants}
       />
