@@ -12,7 +12,7 @@ import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
-const PlantForm = ({ addPlant, setAdd, updatePlant, errors, setErrors }) => {
+const PlantForm = ({ addPlant, setAdd, setEdit, updatePlant, errors, setErrors }) => {
   const [plant, setPlant] = useState({ name: '', desc: '', img: '' })
   const { id } = useParams();
   const location = useLocation()
