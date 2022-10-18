@@ -45,6 +45,7 @@ const Profile = ({ user, updateUser }) => {
     setFile(null)
     setFormValue({ ...formVals, image: null })
   }
+  
 
   const editForm = () => {
     return(
