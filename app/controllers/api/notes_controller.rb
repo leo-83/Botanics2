@@ -11,7 +11,7 @@ def show
 end
 
 def create
-  @note = @plant.notes.new(note_params)
+  @note = @plant.notes.new(notes_params)
   if @note.save
     render json: @note
   else
