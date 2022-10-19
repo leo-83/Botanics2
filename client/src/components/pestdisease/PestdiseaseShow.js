@@ -1,5 +1,5 @@
 import { Card, Modal, Button, Container, Row, Col } from 'react-bootstrap';
-import { PestdiseaseConsumer } from '../../providers/PestdiseaseProvider';
+import { PestdiseaseConsumer } from '../../providers/PestProvider';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 

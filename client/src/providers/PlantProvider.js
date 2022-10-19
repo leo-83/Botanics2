@@ -9,6 +9,7 @@ export const PlantConsumer = PlantContext.Consumer;
 const PlantProvider = ({ children }) => {
   const [plants, setPlants] = useState([])
   const [errors, setErrors] = useState(null)
+  const [pagination, setPagination] = useState(1)
   const navigate = useNavigate()
 
   const getAllPlants = () => {

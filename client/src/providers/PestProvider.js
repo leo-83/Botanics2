@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-export const PestContext = React.createContext();
+export const PestdiseaseContext = React.createContext();
 
 export const PestConsumer = PestContext.Consumer;
 
