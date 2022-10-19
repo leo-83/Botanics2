@@ -16,7 +16,7 @@ const Notes = ({ notes, getAllNotes }) => {
   return (
     <>
       <Button variant="primary" onClick={() => setAdd(true)}>
-        +
+        + Add A Note
       </Button>
 
       <Modal show={adding} onHide={() => setAdd(false)}>

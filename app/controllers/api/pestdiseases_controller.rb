@@ -34,15 +34,14 @@ class Api::PestdiseasesController < ApplicationController
 
   private 
     def pestdisease_params
-      params.require(:pestdisease).permit(:user_id)
+      params.require(:pestdisease).permit(:name, :pdate, :problem, :treatment)
     end
 
     def set_plant
-      @plant = Plant.find(params[:id])
+      @plant = Plant.find(params[:plant_id])
     end
 
     def set_pestdisease
-      @pestdisease = @plant.enrollments.find(params[:id])
+      @pestdisease = @plant.pestdiseases.find(params[:id])
     end
-  end
 end

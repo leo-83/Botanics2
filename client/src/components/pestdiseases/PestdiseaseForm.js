@@ -1,17 +1,12 @@
 import { useState, useEffect } from 'react';
 import { PestdiseaseConsumer } from '../../providers/PestProvider'; 
 import { Button, Form } from 'react-bootstrap';
-import { useParams, useLocation } from 'react-router-dom';
-import Flash from '../shared/Flash';
 
-const PestdiseaseForm = ({ addPestdisease, setAdd, updatePestdisease, errors, setErrors }) => {
+const PestdiseaseForm = ({ pestdisease, addPestdisease, setAdd, pdate, problem, treatment, name,  updatePestdisease, errors, setErrors, id, plantId, setEdit }) => {
   const [pestdiesease, setPestdisease] = useState({ name: '', pdate: '', problem: '', treatment: '' })
-  const { id } = useParams();
-  const location = useLocation()
    
   useEffect( () => {
     if (id) {
-      const { name, pdate, problem, treatment } = location.state 
       setPestdisease({ name, pdate, problem, treatment })
     }
   }, [])
@@ -19,10 +14,11 @@ const PestdiseaseForm = ({ addPestdisease, setAdd, updatePestdisease, errors, se
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
-      updatePestdiesease(id, pestdiesease)
+      updatePestdisease(plantId, id, pestdisease)
+      setEdit(false)
     } 
     else {
-      addPestdisease(pestdiesease)
+      addPestdisease(plantId, pestdiesease)
       setAdd(false)
     }
     setPestdisease({ name: '', pdate: '', problem: '', treatment: '' })
@@ -30,22 +26,14 @@ const PestdiseaseForm = ({ addPestdisease, setAdd, updatePestdisease, errors, se
 
   return (
     <>
-      { errors ?
-        <Flash
-          variant={errors.variant}
-          msg={errors.msg}
-          setErrors={setErrors}
-        />
-      : null
-      }
       <Form onSubmit={handleSubmit}>
         <Form.Group>
-          <Form.Label>Name</Form.Label>
+          <Form.Label>Pest & Disease</Form.Label>
           <Form.Control 
             name='name'
             value={pestdiesease.name}
             onChange={(e) => setPestdisease({ ...pestdiesease, name: e.target.value })}
-            required  
+            required
           />
         </Form.Group>
         <Form.Group>
@@ -64,6 +52,8 @@ const PestdiseaseForm = ({ addPestdisease, setAdd, updatePestdisease, errors, se
             value={pestdiesease.problem}
             onChange={(e) => setPestdisease({ ...pestdiesease, problem: e.target.value })}
             required  
+            as="textarea" 
+            rows={3}
           />
         </Form.Group>
         <Form.Group>
@@ -73,6 +63,8 @@ const PestdiseaseForm = ({ addPestdisease, setAdd, updatePestdisease, errors, se
             value={pestdiesease.treatment}
             onChange={(e) => setPestdisease({ ...pestdiesease, treatment: e.target.value })}
             required  
+            as="textarea" 
+            rows={3}
           />
         </Form.Group>
         <Button variant="primary" type="submit">

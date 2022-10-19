@@ -11,6 +11,7 @@ import PlantProvider from './providers/PlantProvider';
 import PropogationProvider from './providers/PropogationProvider';
 import WishlistProvider from './providers/WishlistProvider';
 import NoteProvider from './providers/NoteProvider';
+import PestdiseaseProvider from './providers/PestdiseaseProvider';
 
 
 initMiddleware()
@@ -24,7 +25,9 @@ root.render(
           <PropogationProvider>
             <WishlistProvider>  
               <NoteProvider>
-                <App />
+                <PestdiseaseProvider>
+                  <App />
+                </PestdiseaseProvider>
               </NoteProvider>
             </WishlistProvider>
           </PropogationProvider>

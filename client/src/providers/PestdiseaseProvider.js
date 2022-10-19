@@ -42,7 +42,7 @@ const PestdiseaseProvider = ({ children }) => {
           }
           return p
         })
-        setNotes(newUpdatedPestdiseases)
+        setPestdiseases(newUpdatedPestdiseases)
         navigate(`/${plantId}/pestdiseases`)
         window.location.reload()
       })
