@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { initMiddleware } from 'devise-axios';
 import AuthProvider from './providers/AuthProvider';
 import PlantProvider from './providers/PlantProvider';
+import PropogationProvider from './providers/PropogationProvider';
 // import WishlistProvider from './providers/WishlistProvider';
 import NoteProvider from './providers/NoteProvider';
 
@@ -20,11 +21,13 @@ root.render(
     <BrowserRouter>
       <AuthProvider>
        <PlantProvider>
-         {/* <WishlistProvider>   */}
-           <NoteProvider>
-             <App />
-           </NoteProvider>
-         {/* </WishlistProvider> */}
+        <PropogationProvider>
+          {/* <WishlistProvider>   */}
+            <NoteProvider>
+              <App />
+            </NoteProvider>
+          {/* </WishlistProvider> */}
+         </PropogationProvider>
        </PlantProvider>
       </AuthProvider>
     </BrowserRouter>

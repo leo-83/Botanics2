@@ -1,7 +1,8 @@
 import { ListGroup, Container } from 'react-bootstrap';
 import PropogationShow from './PropogationShow';
+import propogations from './Propogations';
 
-const PropogationList = ({ propgations, plantId }) => (
+const PropogationList = ({ propogations, plantId }) => (
   <Container>
     <h1>All Propogations For This Plant</h1>
     <ListGroup variant="flush">
