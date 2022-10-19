@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
     before_action :authenticate_user! 
     
-    def update
+    def update 
       user = User.find(params[:id])
       user.name = params[:name] ? params[:name] : user.name
       user.email = params[:email] ? params[:email] : user.email

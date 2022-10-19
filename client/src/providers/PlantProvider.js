@@ -33,26 +33,44 @@ const PlantProvider = ({ children }) => {
         })
       })
   }
-
+ 
   const updatePlant = (id, plant) => {
-    axios.put(`/api/plants/${id}`, { plant })
+    let data = new FormData();
+    data.append('name', plant.name)
+    data.append('desc', plant.desc)
+    data.append('file', plant.img)
+    axios.put(`/api/plants/${id}`, data)
       .then( res => {
-        const newUpdatedPlants = plants.map( p => {
-          if (p.id === id) {
-            return res.data 
-          }
-          return p
-        })
-        setPlants(newUpdatedPlants)
-        navigate('/plants')
+        setPlants(res.data)
+        navigate("/plants")
+        window.location.reload()
       })
-      .catch(err => {
+      .catch( err => {
+        console.log(err)
         setErrors({ 
           variant: 'danger',
-          msg: Object.keys(err.response.data.errors)[0] + " " + Object.values(err.response.data.errors)[0][0]
+          msg: err.response.data.errors[0]
         })
       })
   }
+  //   axios.put(`/api/plants/${id}`, { plant })
+  //     .then( res => {
+  //       const newUpdatedPlants = plants.map( p => {
+  //         if (p.id === id) {
+  //           return res.data 
+  //         }
+  //         return p
+  //       })
+  //       setPlants(newUpdatedPlants)
+  //       navigate('/plants')
+  //     })
+  //     .catch(err => {
+  //       setErrors({ 
+  //         variant: 'danger',
+  //         msg: Object.keys(err.response.data.errors)[0] + " " + Object.values(err.response.data.errors)[0][0]
+  //       })
+  //     })
+  
 
   const deletePlant = (id) => {
     axios.delete(`/api/plants/${id}`)
@@ -66,19 +84,6 @@ const PlantProvider = ({ children }) => {
         })
       })
   }
-
-  // const getRandomPlant = () => {
-  //   axios.get('/api/randomcat')
-  //     .then(res => {
-  //       setRandomCat(res.data)
-  //     })
-  //     .catch(err => {
-  //       setErrors({ 
-  //         variant: 'danger',
-  //         msg: err.response.data.errors[0]
-  //       })
-  //     })
-  // }
 
   return (
     <PlantContext.Provider value={{
@@ -98,3 +103,34 @@ const PlantProvider = ({ children }) => {
 }
 
 export default PlantProvider;
+  // const getRandomPlant = () => {
+  //   axios.get('/api/randomcat')
+  //     .then(res => {
+  //       setRandomCat(res.data)
+  //     })
+  //     .catch(err => {
+  //       setErrors({ 
+  //         variant: 'danger',
+  //         msg: err.response.data.errors[0]
+  //       })
+  //     })
+  // }
+
+//   return (
+//     <PlantContext.Provider value={{
+//       plants, 
+//       errors, 
+//       setErrors, 
+//       getAllPlants,
+//       addPlant,
+//       updatePlant, 
+//       deletePlant, 
+//       // randomCat, 
+//       // getRandomCat, 
+//     }}>
+//       { children }
+//     </PlantContext.Provider>
+//   )
+// }
+
+// export default PlantProvider;
