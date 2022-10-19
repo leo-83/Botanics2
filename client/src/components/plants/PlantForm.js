@@ -101,7 +101,7 @@ const PlantForm = ({ updatePlant, errors, setErrors }) => {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Description</Form.Label>
+          <Form.Label>Desc</Form.Label>
           <Form.Control 
             name='desc'
             value={plant.desc}
