@@ -27,10 +27,43 @@ const PropogationForm = ({ setAdd, addPropogation, updatePropogation, id, plantI
     <>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
-          <Form.Label>Propogation</Form.Label>
+          <Form.Label>Propogation Name</Form.Label>
           <Form.Control 
             name="name"
             value={propogation.name}
+            onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
+            required
+            as="textarea" 
+            rows={3}
+           />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Method</Form.Label>
+          <Form.Control 
+            name="method"
+            value={propogation.method}
+            onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
+            required
+            as="textarea" 
+            rows={3}
+           />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Date</Form.Label>
+          <Form.Control 
+            name="pdate"
+            value={propogation.pdate}
+            onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
+            required
+            as="textarea" 
+            rows={3}
+           />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Results</Form.Label>
+          <Form.Control 
+            name="results"
+            value={propogation.results}
             onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
             required
             as="textarea" 
