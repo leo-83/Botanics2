@@ -16,7 +16,7 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
             variant="primary" 
             onClick={() => setShow(true)}
           >
-            Show
+            Show Plant
           </Button>
 
           <Modal show={showing} onHide={() => setShow(false)}>
