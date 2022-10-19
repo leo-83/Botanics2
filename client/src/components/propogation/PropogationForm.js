@@ -9,7 +9,7 @@ const PropogationForm = ({ setAdd, addPropogation, updatePropogation, id, plantI
     if (id) {
       setPropogation({ name, method, pdate, results })
     }
-  }, [])
+  }, [id, name, method, pdate, results])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -26,49 +26,41 @@ const PropogationForm = ({ setAdd, addPropogation, updatePropogation, id, plantI
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Form.Group>
+      <Form.Group>
           <Form.Label>Propogation Name</Form.Label>
           <Form.Control 
-            name="name"
+            name='name'
             value={propogation.name}
-            onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
-            required
-            as="textarea" 
-            rows={1}
-           />
+            onChange={(e) => setPropogation({ ...propogation, name: e.target.value })}
+            required  
+          />
         </Form.Group>
         <Form.Group>
           <Form.Label>Method</Form.Label>
           <Form.Control 
-            name="method"
+            name='method'
             value={propogation.method}
-            onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
-            required
-            as="textarea" 
-            rows={1}
-           />
+            onChange={(e) => setPropogation({ ...propogation, name: e.target.value })}
+            required  
+          />
         </Form.Group>
         <Form.Group>
           <Form.Label>Date</Form.Label>
           <Form.Control 
-            name="pdate"
-            value={propogation.pdate}
-            onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
-            required
-            as="textarea" 
-            rows={1}
-           />
+            name='date'
+            value={propogation.date}
+            onChange={(e) => setPropogation({ ...propogation, name: e.target.value })}
+            required  
+          />
         </Form.Group>
         <Form.Group>
           <Form.Label>Results</Form.Label>
           <Form.Control 
-            name="results"
+            name='results'
             value={propogation.results}
-            onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
-            required
-            as="textarea" 
-            rows={2}
-           />
+            onChange={(e) => setPropogation({ ...propogation, name: e.target.value })}
+            required  
+          />
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit

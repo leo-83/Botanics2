@@ -20,15 +20,15 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-       <PlantProvider>
-        <PropogationProvider>
-          {/* <WishlistProvider>   */}
-            <NoteProvider>
-              <App />
-            </NoteProvider>
-          {/* </WishlistProvider> */}
-         </PropogationProvider>
-       </PlantProvider>
+        <PlantProvider>
+          <PropogationProvider>
+            {/* <WishlistProvider>   */}
+              <NoteProvider>
+                <App />
+              </NoteProvider>
+            {/* </WishlistProvider> */}
+          </PropogationProvider>
+        </PlantProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
