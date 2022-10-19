@@ -3,6 +3,7 @@ import { PlantConsumer } from '../../providers/PlantProvider';
 import { Button, Form, Col } from 'react-bootstrap';
 import { useParams, useLocation } from 'react-router-dom';
 import Flash from '../shared/Flash';
+import axios from 'axios';
 
 import { FilePond, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
@@ -13,7 +14,7 @@ import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
-const PlantForm = ({ setEdit, updatePlant, errors, setErrors }) => {
+const PlantForm = ({ updatePlant, errors, setErrors }) => {
   const [plant, setPlant] = useState({ name: '', desc: '', img: '' })
   const { id } = useParams();
   const location = useLocation()
@@ -30,7 +31,8 @@ const PlantForm = ({ setEdit, updatePlant, errors, setErrors }) => {
 
   const defaultImg = "https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHBsYW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
   
-  
+
+
   const handleFileUpdate = (fileItems) => {
     if (fileItems.length !== 0) {
       setFile(fileItems)
@@ -42,7 +44,7 @@ const PlantForm = ({ setEdit, updatePlant, errors, setErrors }) => {
   const handleFileRemoved = ( e, file ) => {
     setFile(null)
     setPlant({ ...plant, img: null })
-    // updatePlant(plant.id, plant);
+    updatePlant(plant.id, plant);
     // setEditing(false)
  
   }  
@@ -51,19 +53,18 @@ const PlantForm = ({ setEdit, updatePlant, errors, setErrors }) => {
     e.preventDefault()
     if (id) {
       updatePlant(id, plant)
-      setEdit(false)
     }
-  //   } 
-  //   else {
-  //     if (plant.img === ''){
-  //       const newPlant = { ...plant, img: defaultImg}
-  //       addPlant(newPlant)
-  //     } else {
-  //       addPlant(plant)
-  //     }
-  //     setAdd(false)
-  //   }
-    setPlant({ name: '', img: '', desc: '' })
+    // } 
+    // else {
+    //   if (plant.img === ''){
+    //     const newPlant = { ...plant, img: defaultImg}
+    //     addPlant(newPlant)
+    //   } else {
+    //     addPlant(plant)
+    //   }
+    //   setAdd(false)
+    // }
+    // setPlant({ name: '', img: '', desc: '' })
   }
 
   return (
