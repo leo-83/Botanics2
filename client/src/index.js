@@ -21,17 +21,15 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <PlantProvider>
-          <PropogationProvider>
-            <WishlistProvider>  
-              <NoteProvider>
-                <PestdiseaseProvider>
-                  <App />
-                </PestdiseaseProvider>
-              </NoteProvider>
-            </WishlistProvider>
-          </PropogationProvider>
-        </PlantProvider>
+       <PlantProvider>
+         {/* <WishlistProvider>   */}
+           <NoteProvider>
+            <PestdiseaseProvider>
+             <App />
+            </PestdiseaseProvider>
+           </NoteProvider>
+         {/* </WishlistProvider> */}
+       </PlantProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
