@@ -19,7 +19,7 @@ const PlantForm = ({ updatePlant, errors, setErrors }) => {
   const { id } = useParams();
   const location = useLocation()
   const [file, setFile] = useState()
-  // const [formVals, setFormValue] = useState({ name: '', desc: '', img: null })
+
    
   useEffect( () => {
     if (id) {
@@ -30,8 +30,6 @@ const PlantForm = ({ updatePlant, errors, setErrors }) => {
 
 
   const defaultImg = "https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHBsYW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
-  
-
 
   const handleFileUpdate = (fileItems) => {
     if (fileItems.length !== 0) {
@@ -45,26 +43,15 @@ const PlantForm = ({ updatePlant, errors, setErrors }) => {
     setFile(null)
     setPlant({ ...plant, img: null })
     updatePlant(plant.id, plant);
-    // setEditing(false)
- 
-  }  
+   
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
       updatePlant(id, plant)
     }
-    // } 
-    // else {
-    //   if (plant.img === ''){
-    //     const newPlant = { ...plant, img: defaultImg}
-    //     addPlant(newPlant)
-    //   } else {
-    //     addPlant(plant)
-    //   }
-    //   setAdd(false)
-    // }
-    // setPlant({ name: '', img: '', desc: '' })
+
   }
 
   return (
@@ -109,22 +96,7 @@ const PlantForm = ({ updatePlant, errors, setErrors }) => {
             required  
           />
         </Form.Group>
-        {/* <Form.Group>
-          <Form.Label>Image</Form.Label>
-          {/* <FilePond
-            files={file}
-            onupdatefiles={handleFileUpdate} 
-            onremovefile={handleFileRemoved}
-            allowMultiple={false}
-            name="img"
-            labelIdle='Drag and Drop your files or <span class="filepond--label-action">Browse</span>'
-          /> */}
-          {/* <Form.Control 
-            name='img'
-            value={plant.img}
-            onChange={(e) => setPlant({ ...plant, img: e.target.value })}
-          /> */}
-        {/* </Form.Group> */} 
+        
         <Button variant="primary" type="submit">
           Submit
         </Button>
@@ -134,22 +106,6 @@ const PlantForm = ({ updatePlant, errors, setErrors }) => {
   )
 }
 
-// const plantView = () => {
-//   return (
-//     <>
-//       <Col md='4'>
-//         <Image
-//           width='250px'
-//           src={formVals.image || defaultImage } 
-//         />
-//       </Col>
-//       <Col md='8'>
-//         <h1>{formVals.name}</h1>
-//         <h1>{formVals.email}</h1>
-//       </Col>
-//     </>
-//   )
-// }
 
 const ConnectedPlantForm = (props) => (
   <PlantConsumer>
@@ -158,3 +114,4 @@ const ConnectedPlantForm = (props) => (
 )
 
 export default ConnectedPlantForm;
+

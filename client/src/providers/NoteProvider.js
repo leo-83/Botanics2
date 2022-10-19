@@ -11,8 +11,8 @@ const NoteProvider = ({ children }) => {
   const [errors, setErrors] = useState(null)
   const navigate = useNavigate()
 
-  const getAllNotes = (plantId) => {
-    axios.get(`/api/plants/${plantId}/notes`)
+  const getAllNotes = (plant_id) => {
+    axios.get(`/api/plants/${plant_id}/notes`)
       .then( res => setNotes(res.data))
       .catch(err => {
         setErrors({ 
@@ -22,8 +22,8 @@ const NoteProvider = ({ children }) => {
       })
   }
 
-  const addNote = (plantId, note) => {
-    axios.post(`/api/plants/${plantId}/notes`, { note })
+  const addNote = (plant_id, note) => {
+    axios.post(`/api/plants/${plant_id}/notes`, { note })
       .then( res => setNotes([...notes, res.data]))
       .catch(err => {
         setErrors({ 
@@ -33,8 +33,8 @@ const NoteProvider = ({ children }) => {
       })
   }
 
-  const updateNote = (plantId, id, note) => {
-    axios.put(`/api/plants/${plantId}/notes/${id}`, { note })
+  const updateNote = (plant_id, id, note) => {
+    axios.put(`/api/plants/${plant_id}/notes/${id}`, { note })
       .then( res => {
         const newUpdatedNotes = notes.map(n => {
           if (n.id !== id) {
@@ -43,7 +43,7 @@ const NoteProvider = ({ children }) => {
           return n
         })
         setNotes(newUpdatedNotes)
-        navigate(`/${plantId}/notes`)
+        navigate(`/${plant_id}/notes`)
         window.location.reload()
       })
       .catch(err => {
@@ -54,8 +54,8 @@ const NoteProvider = ({ children }) => {
       })
   }
 
-  const deleteNote = (plantId, id) => {
-    axios.delete(`/api/plants/${plantId}/notes/${id}`)
+  const deleteNote = (plant_id, id) => {
+    axios.delete(`/api/plants/${plant_id}/notes/${id}`)
       .then(res => {
         setNotes(notes.filter(n => n.id !== id))
       })

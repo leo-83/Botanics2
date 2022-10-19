@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { PestdiseaseConsumer } from '../../providers/PestdiseaseProvider'; 
+import { PestdiseaseConsumer } from '../../providers/PestProvider'; 
 import { Button, Form } from 'react-bootstrap';
 import { useParams, useLocation } from 'react-router-dom';
 import Flash from '../shared/Flash';

@@ -54,7 +54,7 @@ const Profile = ({ user, updateUser }) => {
         <Col md='4'>
           {/* drag and drop */}
           <FilePond
-            files={file}
+            file={file}
             onupdatefiles={handleFileUpdate}
             onremovefile={handleFileRemoved}
             allowMultiple={false}

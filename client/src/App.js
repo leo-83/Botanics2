@@ -28,7 +28,7 @@ const App = () => (
         <Route path='/:id/updateWishlist' element={<WishlistForm />} />
         <Route path='/wishlist' element={<Wishlist />} /> 
         <Route path='/:id/updateWishlist' element={<WishlistForm />} />
-        <Route path='/:plantId/notes' element={<Notes />} />
+        <Route path='/:plant_id/notes' element={<Notes />} />
       <Route path='/profile' element={<Profile />} />
       </Route>
       <Route path='/login' element={<Login />} />

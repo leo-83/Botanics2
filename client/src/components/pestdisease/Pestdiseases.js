@@ -1,6 +1,6 @@
 import PestdiseaseList from './PestdiseaseList';
 import { useEffect, useState } from 'react';
-import { PestdiseaseConsumer } from '../../providers/PestdiseaseProvider';
+import { PestdiseaseConsumer } from '../../providers/PestProvider';
 import PestdiseaseForm from './PestdiseaseForm';
 import { Button, Modal } from 'react-bootstrap';
 

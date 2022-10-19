@@ -11,16 +11,15 @@ def show
 end
 
 def create
-  @note = @plant.notes.new(note_params)
+  @note = @plant.notes.new(notes_params)
   if @note.save
     render json: @note
   else
     render json: { errors: @note.errors }, status: :unprocessable_entity
   end
-end
 
 def update
-  if @note.update(note_params)
+  if @note.update(notes_params)
     render json: @note
   else
     render json: { errors: @note.errors }, status: :unprocessable_entity
@@ -34,7 +33,7 @@ end
 
 private
   def notes_params
-    params.require(:note).permit(:plant_id)
+    params.require(:note).permit(:body)
   end
 
   def set_plant
@@ -44,4 +43,39 @@ private
   def set_note
     @note = @plant.notes.find(params[:id])
   end
+
+  def create
+    @note = @plant.notes.new(note_params)
+    if @note.save
+      render json: @note
+    else
+      render json: { errors: @note.errors }, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @note.update(note_params)
+      render json: @note
+    else
+      render json: { errors: @note.errors }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @note.destroy
+    render json: { message: 'note deleted' }
+  end
+
+  private
+    def note_params
+      params.require(:note).permit(:subject, :body)
+    end
+
+    def set_plant
+      @plant = Plant.find(params[:plant_id])
+    end
+
+    def set_note
+      @note = @plant.notes.find(params[:id])
+    end
 end
