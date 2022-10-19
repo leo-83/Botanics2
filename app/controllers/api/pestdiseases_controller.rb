@@ -27,10 +27,10 @@ class Api::PestdiseasesController < ApplicationController
     end
   end
 
-  def destroy
-    @pestdisease.destroy
-    render json: { message: 'pestdisease deleted' }
-  end
+      def destroy
+        @pestdisease.destroy
+        render json: { message: 'pestdisease deleted' }
+      end
 
   private 
     def pestdisease_params
