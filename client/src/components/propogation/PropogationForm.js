@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { PropogationConsumer } from '../../providers/PropogationProvider';
 import { Form, Button } from 'react-bootstrap';
 
-const PropogationForm = ({ setAdd, addPropogation, updatePropogation, id, plantId, body, setEdit }) => {
-  const [propogation, setPropogation] = useState({body: '' })
+const PropogationForm = ({ setAdd, addPropogation, updatePropogation, id, plantId, name, method, pdate, results, setEdit }) => {
+  const [propogation, setPropogation] = useState({name: '', method: '', pdate: '', results: '' })
 
   useEffect( () => {
     if (id) {
-      setPropogation({ body })
+      setPropogation({ name, method, pdate, results })
     }
   }, [])
 
@@ -29,8 +29,8 @@ const PropogationForm = ({ setAdd, addPropogation, updatePropogation, id, plantI
         <Form.Group>
           <Form.Label>Propogation</Form.Label>
           <Form.Control 
-            name="body"
-            value={propogation.body}
+            name="name"
+            value={propogation.name}
             onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
             required
             as="textarea" 
