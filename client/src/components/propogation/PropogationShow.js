@@ -13,7 +13,7 @@ const PropogationShow = ({name, method, pdate, results, deletePropogation, plant
       <ListGroup.Item>
         <Row>
           <Col>
-            {name, method, pdate, results}
+            {name}
           </Col>
           <Col>
             <Button variant="primary" onClick={() => setShow(true)}>
@@ -26,7 +26,7 @@ const PropogationShow = ({name, method, pdate, results, deletePropogation, plant
               </Modal.Header>
               <Modal.Body>
                 <p>
-                  Propogations: {name, method, pdate, results}
+                  Propogations: {name}
                 </p>
               </Modal.Body>
               <Modal.Footer>
