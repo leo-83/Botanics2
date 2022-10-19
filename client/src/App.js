@@ -12,6 +12,7 @@ import Profile from './components/auth/Profile';
 import Notes from './components/notes/Notes';
 import Wishlist from './components/wishlists/Wishlist';
 import WishlistForm from './components/wishlists/WishlistForm'
+import Propogations from './components/propogation/Propogations';
 // import Footer from './components/shared/Footer';
 
 const App = () => (
@@ -26,9 +27,8 @@ const App = () => (
       <Route path='/:id/updatePlant' element={<PlantForm />} />
         <Route path='/wishlist' element={<Wishlist />} />
         <Route path='/:id/updateWishlist' element={<WishlistForm />} />
-        <Route path='/wishlist' element={<Wishlist />} /> 
-        <Route path='/:id/updateWishlist' element={<WishlistForm />} />
-        <Route path='/:plant_id/notes' element={<Notes />} />
+        <Route path='/:plantId/propogations' element={<Propogations />} />
+        <Route path='/:plantId/notes' element={<Notes />} />
       <Route path='/profile' element={<Profile />} />
       </Route>
       <Route path='/login' element={<Login />} />

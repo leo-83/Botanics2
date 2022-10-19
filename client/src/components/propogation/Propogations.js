@@ -5,7 +5,7 @@ import PropogationList from './PropogationList';
 import { Button, Modal } from 'react-bootstrap';
 import PropogationForm from './PropogationForm';
 
-const Propogations = ({ propgations, getAllPropogations }) => {
+const Propogations = ({ propogations, getAllPropogations }) => {
   const { plantId } = useParams();
   const [adding, setAdd] = useState(false)
 
@@ -31,7 +31,7 @@ const Propogations = ({ propgations, getAllPropogations }) => {
         </Modal.Body>
       </Modal>
       <PropogationList 
-        propgations={propogations}
+        propogations={propogations}
         plantId={plantId}
       />
     </>
@@ -44,4 +44,4 @@ const ConnectedPropogations = (props) => (
   </PropogationConsumer>
 )
 
-export default ConnectedNotes;
+export default ConnectedPropogations;

@@ -34,7 +34,7 @@ const PropogationForm = ({ setAdd, addPropogation, updatePropogation, id, plantI
             onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
             required
             as="textarea" 
-            rows={3}
+            rows={1}
            />
         </Form.Group>
         <Form.Group>
@@ -45,7 +45,7 @@ const PropogationForm = ({ setAdd, addPropogation, updatePropogation, id, plantI
             onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
             required
             as="textarea" 
-            rows={3}
+            rows={1}
            />
         </Form.Group>
         <Form.Group>
@@ -56,7 +56,7 @@ const PropogationForm = ({ setAdd, addPropogation, updatePropogation, id, plantI
             onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
             required
             as="textarea" 
-            rows={3}
+            rows={1}
            />
         </Form.Group>
         <Form.Group>
@@ -67,7 +67,7 @@ const PropogationForm = ({ setAdd, addPropogation, updatePropogation, id, plantI
             onChange={(e) => setPropogation({ ...propogation, body: e.target.value })}
             required
             as="textarea" 
-            rows={3}
+            rows={2}
            />
         </Form.Group>
         <Button variant="primary" type="submit">
