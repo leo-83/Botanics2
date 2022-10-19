@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import { NoteConsumer } from "../../providers/NoteProvider";
 import NoteForm from './NoteForm';
 
-const NoteShow = ({ ntime, ndate, subject, body, deleteNote, plant_id, id }) => {
+const NoteShow = ({body, deleteNote, plantId, id }) => {
   const [showing, setShow] = useState(false)
   const [editing, setEdit] = useState(false);
 
@@ -12,9 +12,6 @@ const NoteShow = ({ ntime, ndate, subject, body, deleteNote, plant_id, id }) => 
     <>
       <ListGroup.Item>
         <Row>
-          <Col>
-            {subject}
-          </Col>
           <Col>
             {body}
           </Col>
@@ -28,21 +25,6 @@ const NoteShow = ({ ntime, ndate, subject, body, deleteNote, plant_id, id }) => 
                 <Modal.Title>Note Show</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <p>
-                  Date: 
-                  <Moment format=" MM-DD-YYYY">
-                    {ndate}
-                  </Moment>
-                </p>
-                <p>
-                  Time: 
-                  <Moment format=" hh:MM a">
-                    {ntime}
-                  </Moment>
-                </p>
-                <p>
-                  Subject: {subject}
-                </p>
                 <p>
                   Notes: {body}
                 </p>
@@ -59,10 +41,7 @@ const NoteShow = ({ ntime, ndate, subject, body, deleteNote, plant_id, id }) => 
                   <Modal.Body>
                     <NoteForm
                       id={id}
-                      plant_id={plant_id}
-                      ndate={ndate}
-                      ntime={ntime}
-                      subject={subject}
+                      plantId={plantId}
                       body={body}
                       setEdit={setEdit}
                     />
@@ -70,7 +49,7 @@ const NoteShow = ({ ntime, ndate, subject, body, deleteNote, plant_id, id }) => 
                 </Modal>
                 <br />
                 <Button
-                  onClick={() => deleteNote(plant_id, id)}
+                  onClick={() => deleteNote(plantId, id)}
                 >
                   Delete
                 </Button>

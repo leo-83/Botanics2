@@ -45,6 +45,12 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
                     <Link to={`/${id}/notes`}>
                       <Button>Notes</Button>
                     </Link>
+                    <Link to={`/${id}/pestdiseases`}>
+                      <Button>Pest/Diseases</Button>
+                    </Link>
+                    <Link to={`/${id}/propogations`}>
+                      <Button>Propogation</Button>
+                    </Link>
                   </Col>
                   <Col>
                     <Image src={img} width='200px' height='200px' />

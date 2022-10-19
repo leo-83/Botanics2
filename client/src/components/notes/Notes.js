@@ -6,11 +6,11 @@ import { Button, Modal } from 'react-bootstrap';
 import NoteForm from './NoteForm';
 
 const Notes = ({ notes, getAllNotes }) => {
-  const { plant_id } = useParams();
+  const { plantId } = useParams();
   const [adding, setAdd] = useState(false)
 
   useEffect( () => {
-    getAllNotes(plant_id)
+    getAllNotes(plantId)
   }, [])
 
   return (
@@ -26,13 +26,13 @@ const Notes = ({ notes, getAllNotes }) => {
         <Modal.Body>
           <NoteForm 
             setAdd={setAdd}
-            plant_id={plant_id}
+            plantId={plantId}
           />
         </Modal.Body>
       </Modal>
       <NoteList 
         notes={notes}
-        plant_id={plant_id}
+        plantId={plantId}
       />
     </>
   )
