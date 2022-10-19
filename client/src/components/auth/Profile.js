@@ -24,7 +24,7 @@ const Profile = ({ user, updateUser }) => {
 
   useEffect( () => {
     const { name, email, image } = user 
-    setFormValue({ name, email, image })
+    setFormValue({ user, name, email, image })
   }, [])
 
   const handleSubmit = (e) => {

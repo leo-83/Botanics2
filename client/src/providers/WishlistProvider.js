@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 export const WishlistContext = React.createContext();
 
@@ -22,8 +21,7 @@ const WishlistProvider = ({ children }) => {
       .catch( err => console.log(err))
   }
 
-  const addWish = (plantId, Wishlist
-  ) => {
+  const addWish = (plantId, Wishlist) => {
     axios.post(`/api/plants/${plantId}/Wishlists`, { Wishlist})
       .then( res => setWishlists([...Wishlists, res.data]))
       .catch( err => console.log(err))
@@ -33,7 +31,7 @@ const WishlistProvider = ({ children }) => {
     axios.put(`/api/plants/${plantId}/Wishlists/${id}`, { Wishlist })
       .then( res => {
         const newUpdatedWishlists = Wishlists.map( e => {
-          if (e.id == id) {
+          if (e.id === id) {
             return res.data
           }
           return e
@@ -59,7 +57,7 @@ const WishlistProvider = ({ children }) => {
       getAllUnwishlistedUsers, 
       addWish,
       updateWish,
-      deleteWish,
+      deleteWishlist,
     }}>
       { children }
     </WishlistContext.Provider>

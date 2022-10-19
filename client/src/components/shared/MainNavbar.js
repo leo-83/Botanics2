@@ -15,7 +15,7 @@ const MainNavbar = ({ user, handleLogout }) => {
             <li>Wishlist</li>
           </Link>
           <Link to='/plants'>
-            <li>All Plants</li>
+            <li>My Plants</li>
           </Link>
           <button onClick={() => handleLogout() }>
             Logout

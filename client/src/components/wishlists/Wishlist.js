@@ -9,7 +9,7 @@ import { Button } from 'react-bootstrap';
 
 const Wishlist = ({ wishlist, getAllWishlists }) => {
   const { plantId } = useParams();
-  const [adding, setAdd] = useState(false)
+  const [setAdd] = useState(false)
 
   useEffect( () => {
     getAllWishlists(plantId)
