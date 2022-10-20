@@ -14,7 +14,7 @@ const teamMembers = [
   },
   {
     name: "Leo",
-    image: "",
+    image: "/images/leo.png",
     desc: "Team Member",
   },
   {
