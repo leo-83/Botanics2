@@ -11,34 +11,34 @@ const PropogationProvider = ({ children }) => {
   const [errors, setErrors] = useState(null)
   const navigate = useNavigate()
 
-  const getAllPropogations = (plantId) => {
-    axios.get(`/api/plants/${plantId}/propogations`)
-      .then( res => setPropogations(res.data))
-      .catch(err => {
-        setErrors({ 
-          variant: 'danger',
-          msg: err.response.data.errors[0]
-        })
-      })
-  }
+  // const getAllPropogations = (plantId) => {
+  //   axios.get(`/api/plants/${plantId}/propogations`)
+  //     .then( res => setPropogations(res.data))
+  //     .catch(err => {
+  //       setErrors({ 
+  //         variant: 'danger',
+  //         msg: err.response.data.errors[0]
+  //       })
+  //     })
+  // }
 
-  const addPropogation = (plantId, propogation) => {
-    axios.post(`/api/plants/${plantId}/propogations`, { propogation })
-      .then( res => setPropogations([...propogations, res.data]))
-      .catch(err => {
-        setErrors({ 
-          variant: 'danger',
-          msg: Object.keys(err.response.data.errors)[0] + " " + Object.values(err.response.data.errors)[0][0]
-        })
-      })
-  }
+  // const addPropogation = (plantId, propogation) => {
+  //   axios.post(`/api/plants/${plantId}/propogations`, { propogation })
+  //     .then( res => setPropogations([...propogations, res.data]))
+  //     .catch(err => {
+  //       setErrors({ 
+  //         variant: 'danger',
+  //         msg: Object.keys(err.response.data.errors)[0] + " " + Object.values(err.response.data.errors)[0][0]
+  //       })
+  //     })
+  // }
 
-  const updatePropogation = (plantId, id, propogation) => {
-    axios.put(`/api/plants/${plantId}/propogations/${id}`, { propogation })
-      .then( res => {
-        const newUpdatedPropogations = propogations.map(p => {
-          if (p.id !== id) {
-  const [Propogations, setPropogations] = useState([])
+  // const updatePropogation = (plantId, id, propogation) => {
+  //   axios.put(`/api/plants/${plantId}/propogations/${id}`, { propogation })
+  //     .then( res => {
+  //       const newUpdatedPropogations = propogations.map(p => {
+  //         if (p.id !== id) {
+  // const [Propogations, setPropogations] = useState([])
   const [unpropogatedUsers, setUsers] = useState([])
 
   const getAllPropogations = (plantId) => {
@@ -57,7 +57,7 @@ const PropogationProvider = ({ children }) => {
   ) => {
     axios.post(`/api/plants/${plantId}/Propogations`, { Propogation
    })
-      .then( res => setPropogations([...Propogations, res.data]))
+      .then( res => setPropogations([...propogations, res.data]))
       .catch( err => console.log(err))
   }
 
@@ -66,11 +66,11 @@ const PropogationProvider = ({ children }) => {
     axios.put(`/api/plants/${plantId}/Propogations/${id}`, { Propogation
    })
       .then( res => {
-        const newUpdatedPropogations = Propogations.map( e => {
+        const newUpdatedPropogations = propogations.map( e => {
           if (e.id == id) {
             return res.data
           }
-          return p
+          return propogations
         })
         setPropogations(newUpdatedPropogations)
         navigate(`/${plantId}/propogations`)
@@ -96,9 +96,6 @@ const PropogationProvider = ({ children }) => {
           msg: err.response.data.errors[0]
         })
       })
-    axios.delete(`/api/plants/${plantId}/Propogations/${id}`)
-      .then( res => setPropogations( Propogations.filter( e => e.id !== id )))
-      .catch( err => console.log(err))
   }
   
   return (
