@@ -45,6 +45,9 @@ const MainNavbar = ({ user, handleLogout }) => {
           <Link to='/'>
             <li>Home</li>
           </Link>
+          <Link to='/aboutUs'>
+            <li>About Us</li>
+          </Link>
           { rightNavItems() }
         </ul>
       </nav>
