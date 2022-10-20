@@ -39,11 +39,11 @@ class Api::PestdiseasesController < ApplicationController
     end
 
     def set_plant
-      @plant = Plant.find(params[:plant_id])
+      @plant = Plant.find(params[:id])
     end
 
     def set_pestdisease
       @pestdisease = @plant.enrollments.find(params[:id])
     end
-
+  end
 end

@@ -12,6 +12,7 @@ import Profile from "./components/auth/Profile";
 import Notes from "./components/notes/Notes";
 import Wishlist from "./components/wishlists/Wishlist";
 import WishlistForm from "./components/wishlists/WishlistForm";
+import Propogations from './components/propogation/Propogations';
 // import Footer from './components/shared/Footer';
 import AboutUs from "./components/aboutus/AboutUs";
 

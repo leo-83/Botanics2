@@ -16,7 +16,7 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
             variant="primary" 
             onClick={() => setShow(true)}
           >
-            Show
+            Show Plant
           </Button>
 
           <Modal show={showing} onHide={() => setShow(false)}>
@@ -44,6 +44,12 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
                     </Button>
                     <Link to={`/${id}/notes`}>
                       <Button>Notes</Button>
+                    </Link>
+                    <Link to={`/${id}/pestdiseases`}>
+                      <Button>Pest/Diseases</Button>
+                    </Link>
+                    <Link to={`/${id}/propogations`}>
+                      <Button>Propogation</Button>
                     </Link>
                   </Col>
                   <Col>

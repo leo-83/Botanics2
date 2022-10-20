@@ -1,17 +1,18 @@
+import { ListGroup, Container } from 'react-bootstrap';
 import PropogationShow from './PropogationShow';
-import { Container, Row, Col } from 'react-bootstrap';
 
-const PropogationList = ({ propogations }) => (
+const PropogationList = ({ propogations, plantId }) => (
   <Container>
-    <Row md='4' sm='12'>
+    <h1>All Propogations For This Plant</h1>
+    <ListGroup variant="flush">
       { propogations.map( p => 
-        <Col key={p.id}>
-          <PropogationShow
-            {...p}
-          />
-        </Col>
-      )}
-    </Row>
+        <PropogationShow 
+          key={p.id}
+          {...p}
+          plantId={plantId}
+        /> 
+      )}   
+    </ListGroup>
   </Container>
 )
 

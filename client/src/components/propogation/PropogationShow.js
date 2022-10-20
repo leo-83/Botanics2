@@ -1,67 +1,73 @@
-import { Card, Modal, Button, Container, Row, Col } from 'react-bootstrap';
-import { PropogationConsumer } from '../../providers/PropogationProvider';
+import { ListGroup, Row, Col, Button, Modal } from "react-bootstrap";
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import Moment from 'react-moment';
+import { PropogationConsumer } from "../../providers/PropogationProvider";
+import PropogationForm from './PropogationForm';
 
-const PlantShow = ({ id, name, img, desc, deletePlant}) => {
+const PropogationShow = ({name, method, pdate, results, deletePropogation, plantId, id }) => {
   const [showing, setShow] = useState(false)
+  const [editing, setEdit] = useState(false);
 
   return (
     <>
-      <Card style={{ width: '12rem' }}>
-        <Card.Img variant="top" src={img} width='200px' height='200px' />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <Button 
-            variant="primary" 
-            onClick={() => setShow(true)}
-          >
-            Show
-          </Button>
+      <ListGroup.Item>
+        <Row>
+          <Col>
+            {name}
+          </Col>
+          <Col>
+            <Button variant="primary" onClick={() => setShow(true)}>
+              Show
+            </Button>
 
-          <Modal show={showing} onHide={() => setShow(false)}>
-            <Modal.Header closeButton>
-              <Modal.Title>{name}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Container>
-                <Row>
-                  <Col>
-                    Name: {name}
-                    <br />
-                    Method: {method}
-                    <br />
-                    <Link 
-                      to={`/${id}/updatePropogation`}
-                      state={{ name, method, pdate, results, plant_id }}
-                    >
-                      <Button>Edit</Button>
-                    </Link>
-                    <Button
-                      onClick={() => deletePropogation(id)}
-                    >
-                      Delete
-                    </Button>
-                    <Link to={`/${id}/notes`}>
-                      <Button>Notes</Button>
-                    </Link>
-                  </Col>
-                  <Col>
-                    <Image src={img} width='200px' height='200px' />
-                  </Col>
-                </Row>
-              </Container>
-            </Modal.Body>
-          </Modal>
-        </Card.Body>
-      </Card>
+            <Modal show={showing} onHide={() => setShow(false)}>
+              <Modal.Header closeButton>
+                <Modal.Title>Show</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <p>
+                  Propogations: {name}
+                </p>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="primary" onClick={() => setEdit(true)}>
+                  Edit
+                </Button>
+
+                <Modal show={editing} onHide={() => setEdit(false)}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Edit</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <PropogationForm
+                      id={id}
+                      plantId={plantId}
+                      name={name}
+                      method={method}
+                      pdate={pdate}
+                      results={results}
+                      setEdit={setEdit}
+                    />
+                  </Modal.Body>
+                </Modal>
+                <br />
+                <Button
+                  onClick={() => deletePropogation(plantId, id)}
+                >
+                  Delete
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </Col>
+        </Row>
+      </ListGroup.Item>
     </>
   )
 }
 
 const ConnectedPropogationShow = (props) => (
   <PropogationConsumer>
-    { value => <PropogationShow {...props} {...value} />}
+    { value => <PropogationShow {...props} {...value} /> } 
   </PropogationConsumer>
 )
 

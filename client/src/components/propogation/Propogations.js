@@ -1,30 +1,23 @@
-import PropogationList from './PropogationList';
+import { PropogationConsumer } from "../../providers/PropogationProvider"
 import { useEffect, useState } from 'react';
-import { PropogationConsumer } from '../../providers/PropogationProvider';
-import PropogationForm from './PropogationForm';
+import { useParams } from 'react-router-dom';
+import PropogationList from './PropogationList';
 import { Button, Modal } from 'react-bootstrap';
-
+import PropogationForm from './PropogationForm';
 
 const Propogations = ({ propogations, getAllPropogations }) => {
-  const [adding, setAdd] = useState(false);
+  const { plantId } = useParams();
+  const [adding, setAdd] = useState(false)
 
   useEffect( () => {
-    getAllPropogations()
+    getAllPropogations(plantId)
   }, [])
 
   return (
     <>
-      <Button 
-        onClick={() => setAdd(true)}
-      >
+      <Button variant="primary" onClick={() => setAdd(true)}>
         +
       </Button>
-      <Link to='/randoplant'>
-        <Button>
-          Rando Plant
-        </Button>
-      </Link>
-      
 
       <Modal show={adding} onHide={() => setAdd(false)}>
         <Modal.Header closeButton>
@@ -33,13 +26,13 @@ const Propogations = ({ propogations, getAllPropogations }) => {
         <Modal.Body>
           <PropogationForm 
             setAdd={setAdd}
+            plantId={plantId}
           />
         </Modal.Body>
       </Modal>
-
-      <h1>My Propogations</h1>
-      <PropogationList
+      <PropogationList 
         propogations={propogations}
+        plantId={plantId}
       />
     </>
   )
