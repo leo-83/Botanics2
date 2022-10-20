@@ -1,4 +1,4 @@
-import { ListGroup, Row, Col, Container, Button, Modal } from "react-bootstrap";
+import { ListGroup, Row, Col, Button, Modal } from "react-bootstrap";
 import { useState } from 'react';
 import Moment from 'react-moment';
 import { NoteConsumer } from "../../providers/NoteProvider";
