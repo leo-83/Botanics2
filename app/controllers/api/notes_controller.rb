@@ -72,7 +72,7 @@ private
     end
 
     def set_plant
-      @plant = Plant.find(params[:id])
+      @plant = Plant.find(params[:plant_id])
     end
 
     def set_note
