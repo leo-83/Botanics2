@@ -21,4 +21,3 @@ function AboutUsCard(props) {
 }
 
 export default AboutUsCard;
-
