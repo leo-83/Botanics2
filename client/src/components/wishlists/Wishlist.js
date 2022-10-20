@@ -6,6 +6,9 @@ import { Button } from 'react-bootstrap';
 // import WishlistForm from './WishlistForm';
 // import NoteForm from './NoteForm';
 // import NoteList from './NoteList';
+import AllWishlist from './AllWishlist';
+import { Button, Modal } from 'react-bootstrap';
+import WishlistForm from './WishlistForm';
 
 const Wishlist = ({ wishlist, getAllWishlists }) => {
   const { plantId } = useParams();
@@ -26,13 +29,13 @@ const Wishlist = ({ wishlist, getAllWishlists }) => {
           <Modal.Title>Add Wishlist</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <NoteForm 
+          <WishlistForm 
             setAdd={setAdd}
             plantId={plantId}
           />
         </Modal.Body>
       </Modal>
-      <NoteList 
+      <AllWishlist 
         wishlist={wishlist}
         plantId={plantId}
       /> */}
