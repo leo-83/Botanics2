@@ -1,6 +1,6 @@
 import PestdiseaseList from './PestdiseaseList';
 import { useEffect, useState } from 'react';
-import { PestdiseaseConsumer } from '../../providers/PestProvider';
+import { PestdiseaseConsumer } from '../../providers/PestdiseaseProvider';
 import PestdiseaseForm from './PestdiseaseForm';
 import { Button, Modal } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
@@ -15,7 +15,7 @@ const Pestdiseases = ({ pestdiseases, getAllPestdiseases }) => {
 
   return (
     <>
-    <Button variant="primary" onClick={() => setAdd(true)}>
+      <Button variant="primary" onClick={() => setAdd(true)}>
         + Add Pest or Disease
       </Button>
       <Modal show={adding} onHide={() => setAdd(false)}>
@@ -37,9 +37,15 @@ const Pestdiseases = ({ pestdiseases, getAllPestdiseases }) => {
   )
 }
 
+// const ConnectedPestdiseases = (props) => (
+//   <PestdiseaseConsumer>
+//     { value => <Pestdiseases {...props} {...value} /> }
+//   </PestdiseaseConsumer>
+// )
+
 const ConnectedPestdiseases = (props) => (
   <PestdiseaseConsumer>
-    { value => <Pestdiseases {...props} {...value} /> }
+    { value => <Pestdiseases {...props} {...value} />}
   </PestdiseaseConsumer>
 )
 

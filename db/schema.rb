@@ -22,11 +22,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_002525) do
     t.index ["plant_id"], name: "index_notes_on_plant_id"
   end
 
-  create_table "pest_diseases", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "pestdiseases", force: :cascade do |t|
     t.bigint "plant_id", null: false
     t.string "name"
