@@ -9,7 +9,7 @@ import { initMiddleware } from 'devise-axios';
 import AuthProvider from './providers/AuthProvider';
 import PlantProvider from './providers/PlantProvider';
 import PropogationProvider from './providers/PropogationProvider';
-// import WishlistProvider from './providers/WishlistProvider';
+import WishlistProvider from './providers/WishlistProvider';
 import NoteProvider from './providers/NoteProvider';
 
 
@@ -22,11 +22,11 @@ root.render(
       <AuthProvider>
         <PlantProvider>
           <PropogationProvider>
-            {/* <WishlistProvider>   */}
+            <WishlistProvider>  
               <NoteProvider>
                 <App />
               </NoteProvider>
-            {/* </WishlistProvider> */}
+            </WishlistProvider>
           </PropogationProvider>
         </PlantProvider>
       </AuthProvider>
