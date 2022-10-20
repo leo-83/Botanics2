@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const PestdiseaseContext = React.createContext();
 
-export const PestdiseaseConsumer = PestdiseaseContext.Consumer; 
+export const PestdiseaseConsumer = PestdiseaseContext.Consumer;
 
 const PestdiseaseProvider = ({ children }) => {
   const [pestdiseases, setPestdiseases] = useState([])
@@ -42,7 +42,7 @@ const PestdiseaseProvider = ({ children }) => {
           }
           return p
         })
-        setNotes(newUpdatedPestdiseases)
+        setPestdiseases(newUpdatedPestdiseases)
         navigate(`/${plantId}/pestdiseases`)
         window.location.reload()
       })
@@ -66,7 +66,7 @@ const PestdiseaseProvider = ({ children }) => {
         })
       })
   }
-  
+
   return (
     <PestdiseaseContext.Provider value={{
       pestdiseases,

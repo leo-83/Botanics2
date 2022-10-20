@@ -1,10 +1,9 @@
-import { ListGroup, Row, Col, Button, Modal } from "react-bootstrap";
+import { Modal, Button, Row, Col, ListGroup } from 'react-bootstrap';
+import { PestdiseaseConsumer } from '../../providers/PestdiseaseProvider';
 import { useState } from 'react';
-import Moment from 'react-moment';
-import { NoteConsumer } from "../../providers/NoteProvider";
-import NoteForm from './NoteForm';
+import PestdiseaseForm from './PestdiseaseForm'
 
-const NoteShow = ({body, deleteNote, plantId, id }) => {
+const PestdiseaseShow = ({ id, name, pdate, problem, treatment, deletePestdisease, plantId}) => {
   const [showing, setShow] = useState(false)
   const [editing, setEdit] = useState(false);
 
@@ -13,7 +12,7 @@ const NoteShow = ({body, deleteNote, plantId, id }) => {
       <ListGroup.Item>
         <Row>
           <Col>
-            {body}
+            {name}
           </Col>
           <Col>
             <Button variant="primary" onClick={() => setShow(true)}>
@@ -22,12 +21,17 @@ const NoteShow = ({body, deleteNote, plantId, id }) => {
 
             <Modal show={showing} onHide={() => setShow(false)}>
               <Modal.Header closeButton>
-                <Modal.Title>Note Show</Modal.Title>
+                <Modal.Title>Pest & Disease Show</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <p>
-                  Notes: {body}
-                </p>
+                Name: {name}
+                <br />
+                pdate: {pdate}
+                <br />
+                  problem: {problem}
+                <br />
+                  treatment: {treatment}
+                <br />
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="primary" onClick={() => setEdit(true)}>
@@ -39,18 +43,20 @@ const NoteShow = ({body, deleteNote, plantId, id }) => {
                     <Modal.Title>Edit Note</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <NoteForm
+                    <PestdiseaseForm
                       id={id}
                       plantId={plantId}
-
-                      body={body}
+                      name={name}
+                      pdate={pdate}
+                      problem={problem}
+                      treatment={treatment}
                       setEdit={setEdit}
                     />
                   </Modal.Body>
                 </Modal>
                 <br />
                 <Button
-                  onClick={() => deleteNote(plantId, id)}
+                  onClick={() => deletePestdisease(plantId, id)}
                 >
                   Delete
                 </Button>
@@ -63,10 +69,10 @@ const NoteShow = ({body, deleteNote, plantId, id }) => {
   )
 }
 
-const ConnectedNoteShow = (props) => (
-  <NoteConsumer>
-    { value => <NoteShow {...props} {...value} /> } 
-  </NoteConsumer>
+const ConnectedPestdiseaseShow = (props) => (
+  <PestdiseaseConsumer>
+    { value => <PestdiseaseShow {...props} {...value} />}
+  </PestdiseaseConsumer>
 )
 
-export default ConnectedNoteShow;
+export default ConnectedPestdiseaseShow;
