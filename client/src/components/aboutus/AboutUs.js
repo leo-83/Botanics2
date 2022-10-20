@@ -18,7 +18,7 @@ const teamMembers = [
     desc: "Team Member",
   },
   {
-    name: "Brennon",
+    name: "Brennen",
     image: "",
     desc: "Team Member",
   },
