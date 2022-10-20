@@ -30,6 +30,7 @@ const App = () => (
             <Route path="/:id/updateWishlist" element={<WishlistForm />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/:id/updateWishlist" element={<WishlistForm />} />
+            <Route path="/:propogation" element={<Propogations />} />
             <Route path="/:plantId/notes" element={<Notes />} />
             <Route path="/profile" element={<Profile />} />
           </Route>
