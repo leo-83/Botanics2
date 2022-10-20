@@ -37,12 +37,6 @@ const Pestdiseases = ({ pestdiseases, getAllPestdiseases }) => {
   )
 }
 
-// const ConnectedPestdiseases = (props) => (
-//   <PestdiseaseConsumer>
-//     { value => <Pestdiseases {...props} {...value} /> }
-//   </PestdiseaseConsumer>
-// )
-
 const ConnectedPestdiseases = (props) => (
   <PestdiseaseConsumer>
     { value => <Pestdiseases {...props} {...value} />}
