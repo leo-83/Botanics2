@@ -11,9 +11,9 @@ const MainNavbar = ({ user, handleLogout }) => {
           <Link to='/profile'>
             <li>Profile</li>
           </Link>
-          <Link to='/wishlists'>
-            <li>Wishlist</li>
-          </Link>
+          {/* <Link to='/wishlists'>
+            <li>Propogations</li>
+          </Link> */}
           <Link to='/plants'>
             <li>All Plants</li>
           </Link>
