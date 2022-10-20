@@ -11,12 +11,37 @@ class Api::PlantsController < ApplicationController
         render json: @plant
       end
 
-      def create
-        @plant = Plant.new(plant_params)
-        if @plant.save
-          render json: @plant
+      def create 
+        plant = Plant.new
+        plant.name = params[:name] 
+        plant.desc = params[:desc] 
+        plant.img = params[:img] 
+        
+        file = params[:file]
+
+        if file && file != '' && file != "undefined"
+          begin
+            ext = File.extname(file.tempfile)
+            cloud_image = Cloudinary::Uploader.upload(
+              file, 
+              public_id: file.original_filename, 
+              secure: true
+              )
+            plant.img = cloud_image['secure_url']
+            if plant.save
+              render json: plant
+            else
+              render json: { errors: user.errors.full_messages }, status: 422
+            end
+          rescue => e
+            render json: { errors: e }, status: 422
+          end
         else
-          render json: { errors: @plant.errors }, status: :unprocessable_entity
+          if plant.save
+            render json: plant
+          else
+            render json: { errors: user.errors.full_messages }, status: 422
+          end
         end
       end
 

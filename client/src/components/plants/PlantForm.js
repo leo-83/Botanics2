@@ -14,7 +14,7 @@ import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
-const PlantForm = ({ updatePlant, errors, setErrors }) => {
+const PlantForm = ({ addPlant, setAdd, updatePlant, errors, setErrors }) => {
   const [plant, setPlant] = useState({ name: '', desc: '', img: '' })
   const { id } = useParams();
   const location = useLocation()
@@ -51,7 +51,16 @@ const PlantForm = ({ updatePlant, errors, setErrors }) => {
     if (id) {
       updatePlant(id, plant)
     }
-
+    else {
+      if (plant.img === ''){
+        const newPlant = { ...plant, img: defaultImg}
+        addPlant(newPlant)
+      } else {
+        addPlant(plant)
+      }
+      setAdd(false)
+    }
+    setPlant({ name: '', img: '', desc: '' })
   }
 
   return (

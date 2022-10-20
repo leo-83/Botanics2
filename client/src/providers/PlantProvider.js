@@ -24,7 +24,13 @@ const PlantProvider = ({ children }) => {
   }
 
   const addPlant = (plant) => {
-    axios.post('/api/plants', { plant })
+    let data = new FormData();
+    let fileData = plant.img == "https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHBsYW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" ? '' : plant.img
+    data.append('name', plant.name)
+    data.append('desc', plant.desc)
+    data.append('file', fileData)
+    data.append('img', plant.img)
+    axios.post('/api/plants', data)
       .then(res => setPlants([...plants, res.data]))
       .catch(err => {
         setErrors({ 
