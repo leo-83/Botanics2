@@ -24,7 +24,7 @@ const MainNavbar = ({ user, handleLogout }) => {
       )
     } else {
       // links that will show up if you are not logged in
-      return (
+      return ( 
         <>
           <Link to='/login'>
             <li>Login</li>

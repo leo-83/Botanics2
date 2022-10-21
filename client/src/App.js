@@ -10,10 +10,10 @@ import Plants from "./components/plants/Plants";
 import PlantForm from "./components/plants/PlantForm";
 import Profile from "./components/auth/Profile";
 import Notes from "./components/notes/Notes";
-import Wishlist from "./components/wishlists/Wishlist";
-import WishlistForm from "./components/wishlists/WishlistForm";
+// import Wishlist from "./components/wishlists/Wishlist";
+// import WishlistForm from "./components/wishlists/WishlistForm";
 import Propogations from './components/propogation/Propogations';
-// import Footer from './components/shared/Footer';
+import Footer from './components/shared/Footer';
 import Pestdiseases from  './components/pestdiseases/Pestdiseases'
 import PestdiseaseForm from  './components/pestdiseases/PestdiseaseForm'
 import AboutUs from "./components/aboutus/AboutUs";
@@ -28,8 +28,8 @@ const App = () => (
           <Route path="/" element={<ProtectedRoute />}>
             <Route path="/plants" element={<Plants />} />
             <Route path="/:id/updatePlant" element={<PlantForm />} />
-            <Route path="/wishlist" element={<Wishlist />} />
-            <Route path="/:id/updateWishlist" element={<WishlistForm />} />
+            {/* <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/:id/updateWishlist" element={<WishlistForm />} /> */}
             <Route path='/:plantId/pestdiseases' element={<Pestdiseases />} />
             <Route path='/:plantId/updatePestdisease' element={<PestdiseaseForm />} />
             <Route path="/:propogation" element={<Propogations />} />
@@ -43,7 +43,7 @@ const App = () => (
         </Routes>
       </>
     </FetchUser>
-    {/* <Footer /> */}
+    <Footer />
   </>
 );
 
