@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { PestdiseaseConsumer } from '../../providers/PestdiseaseProvider';
 import { Button, Form } from 'react-bootstrap';
 
-const PestdiseaseForm = ({ pestdisease, addPestdisease, setAdd, pdate, problem, treatment, name,  updatePestdisease, errors, setErrors, id, plantId, setEdit }) => {
-  const [pestdiesease, setPestdisease] = useState({ name: '', pdate: '', problem: '', treatment: '' })
+const PestdiseaseForm = ({ addPestdisease, setAdd, pdate, problem, treatment, name,  updatePestdisease, errors, setErrors, id, plantId, setEdit }) => {
+  const [pestdisease, setPestdisease] = useState({ name: '', pdate: '', problem: '', treatment: '' })
    
   useEffect( () => {
     if (id) {
@@ -18,7 +18,7 @@ const PestdiseaseForm = ({ pestdisease, addPestdisease, setAdd, pdate, problem, 
       setEdit(false)
     } 
     else {
-      addPestdisease(plantId, pestdiesease)
+      addPestdisease(plantId, pestdisease)
       setAdd(false)
     }
     setPestdisease({ name: '', pdate: '', problem: '', treatment: '' })
@@ -31,8 +31,8 @@ const PestdiseaseForm = ({ pestdisease, addPestdisease, setAdd, pdate, problem, 
           <Form.Label>Pest & Disease</Form.Label>
           <Form.Control 
             name='name'
-            value={pestdiesease.name}
-            onChange={(e) => setPestdisease({ ...pestdiesease, name: e.target.value })}
+            value={pestdisease.name}
+            onChange={(e) => setPestdisease({ ...pestdisease, name: e.target.value })}
             required
           />
         </Form.Group>

@@ -15,8 +15,6 @@ import WishlistForm from './components/wishlists/WishlistForm'
 import Pestdiseases from  './components/pestdiseases/Pestdiseases'
 import PestdiseaseForm from  './components/pestdiseases/PestdiseaseForm'
 // import Footer from './components/shared/Footer';
-import Pestdiseases from  './components/pestdiseases/Pestdiseases'
-import PestdiseaseForm from  './components/pestdiseases/PestdiseaseForm'
 import AboutUs from "./components/aboutus/AboutUs";
 
 const App = () => (
