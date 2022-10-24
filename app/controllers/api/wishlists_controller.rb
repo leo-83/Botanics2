@@ -1,6 +1,6 @@
 class Api::WishlistsController < ApplicationController
   before_action :set_plant
-  before_action :set_wishlist, except: [:index, :create]
+  before_action :set_wishlist, except: [ :create]
 
   def index
     render json: @plant.wishlists
@@ -34,7 +34,7 @@ class Api::WishlistsController < ApplicationController
 
   private 
     def wishlist_params
-      params.require(:wishlist).permit(:user_id)
+      params.require(:wishlist).permit(:found)
     end
 
     def set_plant

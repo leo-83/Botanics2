@@ -18,8 +18,7 @@ import Footer from './components/shared/Footer';
 import Pestdiseases from  './components/pestdiseases/Pestdiseases'
 import PestdiseaseForm from  './components/pestdiseases/PestdiseaseForm'
 import AboutUs from "./components/aboutus/AboutUs";
-// import Header from "./components/shared/Header";
-
+import MyPlants from './components/plants/MyPlants';
 const App = () => (
   <>
     <MainNavbar />
