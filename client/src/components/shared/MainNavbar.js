@@ -66,7 +66,7 @@ const MainNavbar = ({ user, handleLogout }) => {
       </>
     )
   }
-
+  }
   return (
     <>
       <nav>
