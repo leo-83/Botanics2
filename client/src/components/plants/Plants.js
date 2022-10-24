@@ -37,6 +37,7 @@ const Plants = ({ plants, getAllPlants }) => {
       </Modal>
 
       <h1>All Plants</h1>
+      <h3>You can add an existing plant from our directory to your profile and customize the datails from there!</h3>
       <PlantList
         plants={plants}
       />

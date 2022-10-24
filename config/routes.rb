@@ -17,5 +17,9 @@ Rails.application.routes.draw do
       resources :pestdiseases
     end
     resources :users, only: :update
+
+    get '/:id/wishlistPlants', to: 'wishlists#wishlistPlants'
+    get '/:id/plantWishlist', to: 'plants#plantWishlists'
+    
   end 
 end

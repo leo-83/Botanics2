@@ -8,6 +8,7 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
 
   return (
     <>
+    <h1>My Plants</h1>
       <Card style={{ width: '12rem' }}>
         <Card.Img variant="top" src={img} width='200px' height='200px' />
         <Card.Body>
@@ -31,7 +32,7 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
                     <br />
                     Description: {desc}
                     <br />
-                    {/* <Link 
+                    <Link 
                       to={`/${id}/updatePlant`}
                       state={{ name, desc, img }}
                     >
@@ -58,19 +59,6 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
                     <Link to={`/${id}/propogations`}>
                       <Button>Propogation</Button>
                       <br></br>
-                    </Link> */}
-                    <p></p>
-                    Coming Soon:
-                    <Link to={`/${id}/profile`}>
-                      <Button>
-                        Add to My Plants
-                      </Button>
-                    </Link>
-                    <br />
-                    <Link to={`/${id}/wishlists`}>
-                      <Button>
-                        Add to WishList
-                      </Button>
                     </Link>
                   </Col>
                   <Col>
