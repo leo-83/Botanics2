@@ -4,6 +4,7 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Nomatch from "./components/shared/Nomatch";
 import MainNavbar from "./components/shared/MainNavbar";
+// import ProfileNavbar from "./components/shared/ProfileNavbar";
 import FetchUser from "./components/auth/FetchUser";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Plants from "./components/plants/Plants";
