@@ -23,6 +23,7 @@ import AboutUs from "./components/aboutus/AboutUs";
 const App = () => (
   <>
     <MainNavbar />
+<<<<<<< HEAD
       {/* <Header> */}
         <FetchUser>
           <>
@@ -48,6 +49,32 @@ const App = () => (
         </FetchUser>
         {/* </Header> */}
       <Footer />
+=======
+    <FetchUser>
+      <>
+      <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/" element={<ProtectedRoute />}>
+            <Route path="/plants" element={<Plants />} />
+            <Route path="/:id/updatePlant" element={<PlantForm />} />
+            <Route path="/myplants" element={<MyPlants />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/:id/updateWishlist" element={<WishlistForm />} />
+            <Route path='/:plantId/pestdiseases' element={<Pestdiseases />} />
+            <Route path='/:plantId/updatePestdisease' element={<PestdiseaseForm />} />
+            <Route path="/:propogation" element={<Propogations />} />
+            <Route path="/:plantId/notes" element={<Notes />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/*" element={<Nomatch />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+        </Routes>
+      </>
+    </FetchUser>
+    <Footer />
+>>>>>>> 3f716c1 (unhide links to edit, add pest/disease, add propogation for plant)
   </>
 );
 
