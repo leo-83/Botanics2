@@ -27,6 +27,40 @@ import { LandingNavbar,
         </NavbarInnerContainer>
       </LandingNavbar>
     )
+const MainNavbar = ({ user, handleLogout }) => {
+  
+  const rightNavItems = () => {
+    // links that show up if you are logged in
+    if (user) {
+      return (
+        <>
+          <Link to='/profile'>
+            <li>Profile</li>
+          </Link>
+          {/* <Link to='/wishlists'>
+            <li>Propogations</li>
+          </Link> */}
+          <Link to='/plants'>
+            <li>My Plants</li>
+          </Link>
+          <button onClick={() => handleLogout() }>
+            Logout
+          </button>
+        </>
+      )
+    } else {
+      // links that will show up if you are not logged in
+      return ( 
+        <>
+          <Link to='/login'>
+            <li>Login</li>
+          </Link>
+          <Link to='/register'>
+            <li>Sign-up</li>
+          </Link>
+        </>
+      )
+    }
   }
 
   const ConnectedMainNavbar = (props) => (

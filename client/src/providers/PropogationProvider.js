@@ -39,35 +39,35 @@ const PropogationProvider = ({ children }) => {
   //       const newUpdatedPropogations = propogations.map(p => {
   //         if (p.id !== id) {
   // const [Propogations, setPropogations] = useState([])
-  const [unpropogatedUsers, setUsers] = useState([])
+  const [setUsers] = useState([])
 
   const getAllPropogations = (plantId) => {
-    axios.get(`/api/plants/${plantId}/Propogations`)
+    axios.get(`/api/plants/${plantId}/propogations`)
       .then( res => setPropogations(res.data))
       .catch( err => console.log(err))
   }
 
   const getAllUnpropogatedUsers = (plantId) => {
-    axios.get(`/api/plants/${plantId}/Unpropogated`)
+    axios.get(`/api/plants/${plantId}/unpropogated`)
       .then( res => setUsers(res.data))
       .catch( err => console.log(err))
   }
 
-  const addPropogation = (plantId, Propogation
+  const addPropogation = (plantId, propogation
   ) => {
-    axios.post(`/api/plants/${plantId}/Propogations`, { Propogation
+    axios.post(`/api/plants/${plantId}/propogations`, { propogation
    })
       .then( res => setPropogations([...propogations, res.data]))
       .catch( err => console.log(err))
   }
 
-  const updatePropogation = (plantId, id, Propogation
+  const updatePropogation = (plantId, id, propogation
   ) => {
-    axios.put(`/api/plants/${plantId}/Propogations/${id}`, { Propogation
+    axios.put(`/api/plants/${plantId}/Propogations/${id}`, { propogation
    })
       .then( res => {
         const newUpdatedPropogations = propogations.map( e => {
-          if (e.id == id) {
+          if (e.id === id) {
             return res.data
           }
           return propogations

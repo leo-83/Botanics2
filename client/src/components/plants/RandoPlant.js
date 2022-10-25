@@ -28,10 +28,10 @@ const RandoPlant = ({ randomPlant, getRandomPlant }) => {
   )
 }
 
-const ConnectedRandoPlant = (props) => (
-  <PlantConsumer>
-    { value => <RandoPlant {...props} {...value} />}
-  </PlantConsumer>
-)
+// const ConnectedRandoPlant = (props) => (
+//   <PlantConsumer>
+//     { value => <RandoPlant {...props} {...value} />}
+//   </PlantConsumer>
+// )
 
 export default ConnectedRandoPlant;
