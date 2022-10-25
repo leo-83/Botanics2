@@ -30,7 +30,6 @@ const App = () => (
             <Route path="/plants" element={<Plants />} />
             <Route path="/:id/updatePlant" element={<PlantForm />} />
             <Route path="/myplants" element={<MyPlants />} />
-
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/:id/updateWishlist" element={<WishlistForm />} />
             <Route path='/:plantId/pestdiseases' element={<Pestdiseases />} />
