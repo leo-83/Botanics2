@@ -32,7 +32,7 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
                     <br />
                     Description: {desc}
                     <br />
-                    {/* <Link 
+                    <Link 
                       to={`/${id}/updatePlant`}
                       state={{ name, desc, img }}
                     >
@@ -45,6 +45,7 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
                     </DeleteButton>
                     <Link to={`/${id}/notes`}>
                       <NotesButton>Notes</NotesButton>
+                    </Link>
                     <p></p>
                     <Button
                       onClick={() => deletePlant(id)}
@@ -60,14 +61,13 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
                     <br></br>
                     <Link to={`/${id}/pestdiseases`}>
                       <PestButton>Pest/Diseases</PestButton>
-                      <Button>Add Pest/Diseases</Button>
                       <br></br>
                     </Link>
                     <br></br>
                     <Link to={`/${id}/propogations`}>
                       <Button>Propogation</Button>
                       <br></br>
-                    </Link> */}
+                    </Link>
                     <p></p>
                     Coming Soon:
                     <Link to={`/${id}/profile`}>
