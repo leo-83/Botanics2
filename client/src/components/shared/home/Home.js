@@ -1,10 +1,10 @@
-import HomeHeadline from "./HomeHeadline";
+import HomeHeadline2 from "./HomeHeadline2";
 // import Info from "./Info";
 // import FAQ from "./FAQ";
 
 const Home = () => (
   <>
-    <HomeHeadline />
+    <HomeHeadline2 />
     {/* <Info /> */}
     {/* <FAQ /> */}
   </>
