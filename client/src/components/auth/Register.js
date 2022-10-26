@@ -25,7 +25,7 @@ const Register = ({ handleRegister, errors, setErrors }) => {
               padding-right: 5%;
           }
           .registerForm {
-              width: 80%;
+              width: 20%;
               padding: 10% 0% 10% 0%;
           }
           .registerEmail {
@@ -43,15 +43,13 @@ const Register = ({ handleRegister, errors, setErrors }) => {
           .login {
               text-align: center;
           }
+          .link-* {
+            :hover :focus
+        }
       `}
       </style>
       <Row>
       <Col>
-        <Row>
-          <p className="registerShow">
-            Login
-          </p>
-        </Row>
         <Container className="registerForm">
 
     { errors ?
@@ -121,12 +119,13 @@ const Register = ({ handleRegister, errors, setErrors }) => {
                                 <Form.Check 
                                   type="checkbox"
                                   label="Remember me"
+                                  color="success"
                                 />
                             </Form.Group>
                         </Col>
                     </Row>
                     <Row>
-                        <Button type="submit">
+                        <Button variant="outline-success"type="submit">
                           Register
                         </Button>
                     </Row>
@@ -136,8 +135,8 @@ const Register = ({ handleRegister, errors, setErrors }) => {
                     <Row className="login">
                         <p>
                           Already have an account?&nbsp;
-                          <Link to="/login">
-                              Login
+                          <Link to="/login"><a href="#" class="link-success">
+                              Login</a>
                           </Link>
                         </p>
                     </Row>
