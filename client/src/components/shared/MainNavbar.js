@@ -1,6 +1,32 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
+// import { Link } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
+import { LandingNavbar,
+  LeftContainer,
+  LoginButton,
+  NavbarInnerContainer,
+  NavbarLink,
+  RightContainer, 
+  SignupButton,
+} from '../../styles/Navbar.style';
+// import { Navbar, Container, Nav } from 'react-bootstrap';
 
+  function MainNavbar() {
+    return (
+      <LandingNavbar>
+        <NavbarInnerContainer>
+          <LeftContainer> </LeftContainer>
+          <RightContainer>
+            <NavbarLink to="/Login">
+            <LoginButton>Login</LoginButton>
+            </NavbarLink>
+            <NavbarLink to="/Register">
+            <SignupButton>Signup</SignupButton>
+            </NavbarLink>
+          </RightContainer>
+        </NavbarInnerContainer>
+      </LandingNavbar>
+    )
 const MainNavbar = ({ user, handleLogout }) => {
   
   const rightNavItems = () => {
@@ -37,28 +63,10 @@ const MainNavbar = ({ user, handleLogout }) => {
     }
   }
 
-  return (
-    <>
-      <nav>
-        <ul>
-          {/* Link that will show regardless of if you are log in or not */}
-          <Link to='/'>
-            <li>Home</li>
-          </Link>
-          <Link to='/aboutUs'>
-            <li>About Us</li>
-          </Link>
-          { rightNavItems() }
-        </ul>
-      </nav>
-    </>
+  const ConnectedMainNavbar = (props) => (
+    <AuthConsumer>
+      { value => <MainNavbar {...props} {...value} />}
+    </AuthConsumer>
   )
-}
 
-const ConnectedMainNavbar = (props) => (
-  <AuthConsumer>
-    { value => <MainNavbar {...props} {...value} />}
-  </AuthConsumer>
-)
-
-export default ConnectedMainNavbar;
+  export default ConnectedMainNavbar;
