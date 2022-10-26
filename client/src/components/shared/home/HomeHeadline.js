@@ -1,4 +1,4 @@
-import { MainHeader } from '../../../styles/SharedStyles.js';
+import { MainHeader } from '../../../styles/SharedStyles';
 import { Image, Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Slide } from 'react-awesome-reveal';

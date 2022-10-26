@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { LeftContainer,
@@ -67,12 +66,18 @@ const MainNavbar = ({ user, handleLogout }) => {
       </>
     )
   }
-  }
+
   return (
     <>
       <nav>
         <ul>
           {/* Link that will show regardless of if you are log in or not */}
+          <Link to='/'>
+            <li>Home</li>
+          </Link>
+          <Link to='/aboutUs'>
+            <li>About Us</li>
+          </Link>
           { rightNavItems() }
         </ul>
       </nav>
@@ -80,11 +85,10 @@ const MainNavbar = ({ user, handleLogout }) => {
   )
 }
 
-  const ConnectedMainNavbar = (props) => (
-    
-    <AuthConsumer>
-      { value => <MainNavbar {...props} {...value} />}
-    </AuthConsumer>
-  )
+const ConnectedMainNavbar = (props) => (
+  <AuthConsumer>
+    { value => <MainNavbar {...props} {...value} />}
+  </AuthConsumer>
+)
 
-  export default ConnectedMainNavbar;
+export default ConnectedMainNavbar;
