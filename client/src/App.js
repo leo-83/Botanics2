@@ -18,33 +18,36 @@ import Footer from './components/shared/Footer';
 import Pestdiseases from  './components/pestdiseases/Pestdiseases'
 import PestdiseaseForm from  './components/pestdiseases/PestdiseaseForm'
 import AboutUs from "./components/aboutus/AboutUs";
+// import Header from "./components/shared/Header";
 
 const App = () => (
   <>
     <MainNavbar />
-    <FetchUser>
-      <>
-      <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/" element={<ProtectedRoute />}>
-            <Route path="/plants" element={<Plants />} />
-            <Route path="/:id/updatePlant" element={<PlantForm />} />
-            {/* <Route path="/wishlist" element={<Wishlist />} />
-            <Route path="/:id/updateWishlist" element={<WishlistForm />} /> */}
-            <Route path='/:plantId/pestdiseases' element={<Pestdiseases />} />
-            <Route path='/:plantId/updatePestdisease' element={<PestdiseaseForm />} />
-            <Route path="/:propogation" element={<Propogations />} />
-            <Route path="/:plantId/notes" element={<Notes />} />
-            <Route path="/profile" element={<Profile />} />
-          </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/*" element={<Nomatch />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-        </Routes>
-      </>
-    </FetchUser>
-    <Footer />
+      {/* <Header> */}
+        <FetchUser>
+          <>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/" element={<ProtectedRoute />}>
+                  <Route path="/plants" element={<Plants />} />
+                  <Route path="/:id/updatePlant" element={<PlantForm />} />
+                  {/* <Route path="/wishlist" element={<Wishlist />} />
+                  <Route path="/:id/updateWishlist" element={<WishlistForm />} /> */}
+                  <Route path='/:plantId/pestdiseases' element={<Pestdiseases />} />
+                  <Route path='/:plantId/updatePestdisease' element={<PestdiseaseForm />} />
+                  <Route path="/:propogation" element={<Propogations />} />
+                  <Route path="/:plantId/notes" element={<Notes />} />
+                  <Route path="/profile" element={<Profile />} />
+                </Route>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/*" element={<Nomatch />} />
+                <Route path="/aboutus" element={<AboutUs />} />
+            </Routes>
+          </>
+        </FetchUser>
+        {/* </Header> */}
+      <Footer />
   </>
 );
 
