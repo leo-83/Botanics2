@@ -21,7 +21,7 @@ const Login = ({ handleLogin, errors, setErrors  }) => {
               padding-right: 5%;
           }
           .loginForm {
-              width: 80%;
+              width: 20%;
               padding: 10% 0% 10% 0%;
           }
           .loginEmail {
@@ -39,15 +39,13 @@ const Login = ({ handleLogin, errors, setErrors  }) => {
           .register {
               text-align: center;
           }
+          .link-* {
+              :hover :focus
+          }
       `}
   </style>
   <Row>
       <Col>
-        <Row>
-          <p className="loginShow">
-            Login
-          </p>
-        </Row>
         <Container className="loginForm">
 
           { errors ?
@@ -101,24 +99,25 @@ const Login = ({ handleLogin, errors, setErrors  }) => {
                         <Col>
                             <Link
                                 className="forgotPasswordText"
-                            >
-                                Forgot Password?
+                            ><a href="#" class="link-success">
+                                Forgot Password?</a>
                             </Link>
                         </Col>
                     </Row>
                     <Row>
-                        <Button type="submit">
-                            Login
-                        </Button>
+                    <Button variant="outline-success">
+                        Login
+                      </Button>
                     </Row>
                 </Form>
               </Row>
           </Container>
+          
                     <Row className="register">
                             <p>
                                 Don't have an account?&nbsp;
-                                <Link to="/register">
-                                    Register
+                                <Link to="/register"><a href="#" class="link-success">
+                                    Register</a>
                                 </Link>
                             </p>
                     </Row>
