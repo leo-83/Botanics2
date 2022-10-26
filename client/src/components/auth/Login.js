@@ -104,10 +104,10 @@ const Login = ({ handleLogin, errors, setErrors  }) => {
                             </Link>
                         </Col>
                     </Row>
-                    <Row>
-                    <Button variant="outline-success">
-                        Login
-                      </Button>
+                    <Row>                  
+                        <Button type="submit" variant="outline-success">
+                            Login
+                        </Button>
                     </Row>
                 </Form>
               </Row>
