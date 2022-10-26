@@ -17,7 +17,7 @@ const Plants = ({ plants, getAllPlants }) => {
     <>
       <Button onClick={() => setAdd(true)}
       >
-        +
+        + Add Plant
       </Button>
 
       <Link to='/randoplant'>
