@@ -20,7 +20,6 @@ const Register = ({ handleRegister, errors, setErrors }) => {
     <>
     <style type="text/css">
       {`
-<<<<<<< HEAD
           .registerShow {
               text-align: right;
               padding-right: 5%;
@@ -47,43 +46,10 @@ const Register = ({ handleRegister, errors, setErrors }) => {
           .link-* {
             :hover :focus
         }
-=======
-          .loginShow {
-              text-align: right;
-              padding-right: 5%;
-          }
-          .loginForm {
-              width: 80%;
-              padding: 10% 0% 10% 0%;
-          }
-          .loginEmail {
-              padding: 5% 0% 5% 0%;
-          }
-          .loginPassword {
-              padding-bottom: 5%;
-          }
-          .loginRemember {
-              padding-bottom: 15%;
-          }
-          .forgotPasswordText {
-              color: gray;
-          }
-          .register {
-              text-align: center;
-          }
->>>>>>> e31bdc3 (register page styling)
       `}
       </style>
       <Row>
       <Col>
-<<<<<<< HEAD
-=======
-        <Row>
-          <p className="registerShow">
-            Login
-          </p>
-        </Row>
->>>>>>> e31bdc3 (register page styling)
         <Container className="registerForm">
 
     { errors ?
@@ -153,20 +119,13 @@ const Register = ({ handleRegister, errors, setErrors }) => {
                                 <Form.Check 
                                   type="checkbox"
                                   label="Remember me"
-<<<<<<< HEAD
                                   color="success"
-=======
->>>>>>> e31bdc3 (register page styling)
                                 />
                             </Form.Group>
                         </Col>
                     </Row>
                     <Row>
-<<<<<<< HEAD
                         <Button variant="outline-success"type="submit">
-=======
-                        <Button type="submit">
->>>>>>> e31bdc3 (register page styling)
                           Register
                         </Button>
                     </Row>
@@ -176,13 +135,8 @@ const Register = ({ handleRegister, errors, setErrors }) => {
                     <Row className="login">
                         <p>
                           Already have an account?&nbsp;
-<<<<<<< HEAD
                           <Link to="/login"><a href="#" class="link-success">
                               Login</a>
-=======
-                          <Link to="/login">
-                              Login
->>>>>>> e31bdc3 (register page styling)
                           </Link>
                         </p>
                     </Row>
