@@ -2,7 +2,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { GreyCol, WhiteCol, GreenLink } from '../../../styles/sharedStyles';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap'
+
 
 
 const Headline = () => (
@@ -23,7 +25,9 @@ const Headline = () => (
     <h3>Composters for healthy planet</h3>
       <h2>PLANTS FOR HEALTHY LIVING</h2>
       <GreenLink to='/Register'>
+        <Button variant="outline-success">
       Sign Up
+        </Button>
     </GreenLink>
       {/* </div> */}
       <br />
