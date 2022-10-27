@@ -72,3 +72,14 @@ export const SignupButton = styled.button`
   font-family: Andale mono, monospace;
   font-size: 15px;
 `;
+
+export const NavbarButton = styled.button`
+  background-color: C0C0C0;
+  border-radius: 25px;
+  height: 40px;
+  width: 75px;
+  border-color: A9A9A9;
+  color: black;
+  font-family: Andale mono, monospace;
+  font-size: 15px;
+`;
