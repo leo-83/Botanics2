@@ -2,6 +2,7 @@ import { Card, Modal, Button, Container, Row, Col, Image } from 'react-bootstrap
 import { PlantConsumer } from '../../providers/PlantProvider';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ShowPlantButton, EditButton, DeleteButton, NotesButton, PestButton, PropButton } from '../../styles/HomeStyles';
 
 const PlantShow = ({ id, name, img, desc, deletePlant}) => {
   const [showing, setShow] = useState(false)
@@ -12,12 +13,12 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
         <Card.Img variant="top" src={img} width='200px' height='200px' />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
-          <Button 
+          <ShowPlantButton 
             variant="primary" 
             onClick={() => setShow(true)}
           >
-            Show Plant
-          </Button>
+            Show
+          </ShowPlantButton>
 
           <Modal show={showing} onHide={() => setShow(false)}>
             <Modal.Header closeButton>
@@ -35,21 +36,21 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
                       to={`/${id}/updatePlant`}
                       state={{ name, desc, img }}
                     >
-                      <Button>Edit</Button>
+                      <EditButton>Edit</EditButton>
                     </Link>
-                    <Button
+                    <DeleteButton
                       onClick={() => deletePlant(id)}
                     >
                       Delete
-                    </Button>
+                    </DeleteButton>
                     <Link to={`/${id}/notes`}>
-                      <Button>Notes</Button>
+                      <NotesButton>Notes</NotesButton>
                     </Link>
                     <Link to={`/${id}/pestdiseases`}>
-                      <Button>Pest/Diseases</Button>
+                      <PestButton>Pest/Diseases</PestButton>
                     </Link>
                     <Link to={`/${id}/propogations`}>
-                      <Button>Propogation</Button>
+                      <PropButton>Propogation</PropButton>
                     </Link>
                   </Col>
                   <Col>

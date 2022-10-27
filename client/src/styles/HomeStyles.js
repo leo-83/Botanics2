@@ -1,20 +1,16 @@
 import styled from 'styled-components';
 
-const Home = styled.h1`
- background: linear-gradient(to bottom right, aliceblue, black);
- font-size: medium;
- text-align: center;
-`
 
 export const MainTitle = styled.h1`
   text-align: center;
-  font-size: 24px;
+  font-size: 34px;
   font-weight: 200;
 `
 
 export const CarouselImg = styled.img`
-  height:573px; 
-  width:572px;
+  height:300px; 
+  width:300px;
+  align-content: center;
 
 `
 
@@ -26,6 +22,84 @@ export const MyPlantsTitle = styled.h1`
 export const MyPlantsLinks = styled.h2`
   text-align: center;
   font-size: small;
-  display: flex;
-  align-content: space-around;
+
+`
+
+export const AddPlantButton = styled.button`
+  color: #FFFFFF;
+  background: #248232;
+  text-align: center;
+  border-width: 0px;
+  border-radius: 25px;
+  height: 40px;
+  width: 150px;
+  font-family: dosis;
+  align-self: center;
+`
+
+export const ShowPlantButton = styled.button`
+  color: #FFFFFF;
+  background: #248232;
+  text-align: center;
+  border-width: 0px;
+  border-radius: 25px;
+  height: 40px;
+  width: 70px;
+  font-family: dosis;
+  align-content: center;
+`
+export const PropButton = styled.button`
+  color: #FFFFFF;
+  background: #248232;
+  text-align: center;
+  border-width: 0px;
+  border-radius: 25px;
+  height: 40px;
+  width: 90px;
+  font-family: dosis;
+  align-content: center;
+`
+export const PestButton = styled.button`
+  color: #FFFFFF;
+  background: #248232;
+  text-align: center;
+  border-width: 0px;
+  border-radius: 25px;
+  height: 40px;
+  width: 100px;
+  font-family: dosis;
+  align-content: center;
+`
+export const NotesButton = styled.button`
+  color: #FFFFFF;
+  background: #248232;
+  text-align: center;
+  border-width: 0px;
+  border-radius: 25px;
+  height: 40px;
+  width: 70px;
+  font-family: dosis;
+  align-content: center;
+`
+export const EditButton = styled.button`
+  color: #FFFFFF;
+  background: #248232;
+  text-align: center;
+  border-width: 0px;
+  border-radius: 25px;
+  height: 40px;
+  width: 70px;
+  font-family: dosis;
+  align-content: center;
+`
+export const DeleteButton = styled.button`
+  color: #FFFFFF;
+  background: #248232;
+  text-align: center;
+  border-width: 0px;
+  border-radius: 25px;
+  height: 40px;
+  width: 70px;
+  font-family: dosis;
+  align-content: center;
 `

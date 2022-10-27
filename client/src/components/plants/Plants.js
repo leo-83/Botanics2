@@ -4,7 +4,7 @@ import { PlantConsumer } from '../../providers/PlantProvider';
 import PlantForm from './PlantForm';
 import { Button, Modal, Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { MainTitle, CarouselImg, MyPlantsTitle, MyPlantsLinks } from '../../styles/HomeStyles';
+import { MainTitle, CarouselImg, MyPlantsTitle, MyPlantsLinks, AddPlantButton } from '../../styles/HomeStyles';
 
 const Plants = ({ plants, getAllPlants }) => {
   const [adding, setAdd] = useState(false);
@@ -16,7 +16,8 @@ const Plants = ({ plants, getAllPlants }) => {
   return (
     <>
       <MainTitle>Welcome back to Botonics!</MainTitle>
-      
+      <br />
+      <br />
       <Carousel variant="dark">
           { plants.map( p =>
             <Carousel.Item>
@@ -33,16 +34,11 @@ const Plants = ({ plants, getAllPlants }) => {
           ) }
         </Carousel>
 
-      <Button onClick={() => setAdd(true)}
-      >
-        Add Plant
-      </Button>
-
-      <Link to='/randoplant'>
+      {/* <Link to='/randoplant'>
         <Button>
           Rando Plant
         </Button>
-      </Link>
+      </Link> */}
       
 
       <Modal show={adding} onHide={() => setAdd(false)}>
@@ -59,7 +55,14 @@ const Plants = ({ plants, getAllPlants }) => {
       <PlantList
         plants={plants}
       />
+      <div style={{display: 'flex', justifyContent: 'center'}}>
+      <AddPlantButton onClick={() => setAdd(true)}
+      >
+        Add Plant
+      </AddPlantButton>
+      </div>
     </>
+    
   )
 }
 
