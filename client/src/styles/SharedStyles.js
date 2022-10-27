@@ -48,10 +48,18 @@ export const GreyCol = styled(Col)`
   `
 
 export const WhiteCol = styled(Col)`
-`
+  background: #FFFFFF;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  `
+export const FlexDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  `
 
 export const GreenLink = styled (Link)`
   color: #008000; 
   font-size: 24px;
   `
-

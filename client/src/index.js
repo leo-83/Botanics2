@@ -26,7 +26,9 @@ root.render(
          {/* <WishlistProvider>   */}
            <NoteProvider>
             <PestdiseaseProvider>
+              <PropogationProvider>
              <App />
+             </PropogationProvider>
             </PestdiseaseProvider>
            </NoteProvider>
          {/* </WishlistProvider> */}

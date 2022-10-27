@@ -63,6 +63,9 @@ const MainNavbar = ({ user, handleLogout }) => {
                Login
             </LoginButton>
           </Link>
+          <Link to='/aboutUs'>
+            <li>About Us</li>
+          </Link>
         </RightContainer>
       </>
     )
@@ -73,12 +76,6 @@ const MainNavbar = ({ user, handleLogout }) => {
       <nav>
         <ul>
           {/* Link that will show regardless of if you are log in or not */}
-          <Link to='/'>
-            <li>Home</li>
-          </Link>
-          <Link to='/aboutUs'>
-            <li>About Us</li>
-          </Link>
           { rightNavItems() }
         </ul>
       </nav>

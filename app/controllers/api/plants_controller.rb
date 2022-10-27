@@ -19,7 +19,7 @@ class Api::PlantsController < ApplicationController
         
         file = params[:file]
 
-        if file && file != '' && file != "undefined"
+        if file && file != '' && file != "undefined" && file != 'null'
           begin
             ext = File.extname(file.tempfile)
             cloud_image = Cloudinary::Uploader.upload(
@@ -54,7 +54,7 @@ class Api::PlantsController < ApplicationController
         file = params[:file]
 
   
-      if file && file != '' && file != 'undefined'
+      if file && file != '' && file != 'undefined' && file != 'null'
         begin
           ext = File.extname(file.tempfile)
           cloud_image = Cloudinary::Uploader.upload(
@@ -67,7 +67,7 @@ class Api::PlantsController < ApplicationController
           if plant.save 
             render json: plant 
           else 
-            render json: { errors: user.errors.full_messages}, status: 422
+            render json: { errors: plant.errors.full_messages}, status: 422
           end
         rescue => e             
           render json: { errors: e }, status: 422
@@ -76,7 +76,7 @@ class Api::PlantsController < ApplicationController
         if plant.save 
           render json: plant 
         else 
-          render json: { errors: user.errors.full_messages}, status: 422
+          render json: { errors: plant.errors.full_messages}, status: 422
         end
       end
   
