@@ -34,11 +34,11 @@ const Plants = ({ plants, getAllPlants }) => {
           ) }
         </Carousel>
 
-      {/* <Link to='/randoplant'>
+      <Link to='/randoplant'>
         <Button>
           Rando Plant
         </Button>
-      </Link> */}
+      </Link>
       
 
       <Modal show={adding} onHide={() => setAdd(false)}>
