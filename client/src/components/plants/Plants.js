@@ -55,6 +55,7 @@ const Plants = ({ plants, getAllPlants }) => {
         Add Plant
       </AddPlantButton>
       </div>
+      <br />
     </>
     
   )
