@@ -11,7 +11,6 @@ export const CarouselImg = styled.img`
   height:300px; 
   width:300px;
   align-content: center;
-
 `
 
 export const MyPlantsTitle = styled.h1`
@@ -22,7 +21,6 @@ export const MyPlantsTitle = styled.h1`
 export const MyPlantsLinks = styled.h2`
   text-align: center;
   font-size: small;
-
 `
 
 export const AddPlantButton = styled.button`
