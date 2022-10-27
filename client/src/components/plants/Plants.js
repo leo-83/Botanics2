@@ -2,9 +2,9 @@ import PlantList from './PlantList';
 import { useEffect, useState } from 'react';
 import { PlantConsumer } from '../../providers/PlantProvider';
 import PlantForm from './PlantForm';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+import { MainTitle, CarouselImg, MyPlantsTitle, MyPlantsLinks, AddPlantButton } from '../../styles/HomeStyles';
 
 const Plants = ({ plants, getAllPlants }) => {
   const [adding, setAdd] = useState(false);
@@ -15,10 +15,24 @@ const Plants = ({ plants, getAllPlants }) => {
 
   return (
     <>
-      <Button onClick={() => setAdd(true)}
-      >
-        +
-      </Button>
+      <MainTitle>Welcome back to Botonics!</MainTitle>
+      <br />
+      <br />
+      <Carousel variant="dark">
+          { plants.map( p =>
+            <Carousel.Item>
+                <CarouselImg
+                  className="Carousel"
+                  src={p.img} 
+                  alt="First slide"
+                />
+                <Carousel.Caption>
+                  <h5>{p.name}</h5>
+                </Carousel.Caption>
+              </Carousel.Item>
+            
+          ) }
+        </Carousel>
 
       <Link to='/randoplant'>
         <Button>
@@ -36,11 +50,20 @@ const Plants = ({ plants, getAllPlants }) => {
         </Modal.Body>
       </Modal>
 
-      <h1>All Plants</h1>
+      <MyPlantsTitle>My Plants</MyPlantsTitle>
+      <MyPlantsLinks>All Plants  Leaves  Indoor Plants  Vegetables  Growing Accessories</MyPlantsLinks>
       <PlantList
         plants={plants}
       />
+      <div style={{display: 'flex', justifyContent: 'center', paddingTop: '20px'}}>
+
+      <AddPlantButton onClick={() => setAdd(true)}
+      >
+        Add Plant
+      </AddPlantButton>
+      </div>
     </>
+    
   )
 }
 

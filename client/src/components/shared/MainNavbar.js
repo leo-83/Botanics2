@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { LandingNavbar,
   LeftContainer,
@@ -11,22 +11,6 @@ import { LandingNavbar,
 } from '../../styles/Navbar.style';
 // import { Navbar, Container, Nav } from 'react-bootstrap';
 
-  function MainNavbar() {
-    return (
-      <LandingNavbar>
-        <NavbarInnerContainer>
-          <LeftContainer> </LeftContainer>
-          <RightContainer>
-            <NavbarLink to="/Login">
-            <LoginButton>Login</LoginButton>
-            </NavbarLink>
-            <NavbarLink to="/Register">
-            <SignupButton>Signup</SignupButton>
-            </NavbarLink>
-          </RightContainer>
-        </NavbarInnerContainer>
-      </LandingNavbar>
-    )
 const MainNavbar = ({ user, handleLogout }) => {
   
   const rightNavItems = () => {
@@ -62,7 +46,7 @@ const MainNavbar = ({ user, handleLogout }) => {
       )
     }
   }
-
+}
   const ConnectedMainNavbar = (props) => (
     <AuthConsumer>
       { value => <MainNavbar {...props} {...value} />}
