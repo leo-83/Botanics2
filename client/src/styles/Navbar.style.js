@@ -14,7 +14,8 @@ export const UserNavbar = styled.nav`
   height: 80px;
   background-color: #ffa585;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  justify-content: center;
 `;
 
 export const LeftContainer = styled.div`

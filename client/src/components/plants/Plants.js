@@ -50,10 +50,10 @@ const Plants = ({ plants, getAllPlants }) => {
       />
       <div style={{display: 'flex', justifyContent: 'center', paddingTop: '20px'}}>
 
-      <AddPlantButton onClick={() => setAdd(true)}
-      >
-        Add Plant
-      </AddPlantButton>
+        <AddPlantButton onClick={() => setAdd(true)}
+        >
+          Add Plant
+        </AddPlantButton>
       </div>
       <br />
 
