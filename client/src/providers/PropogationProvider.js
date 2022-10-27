@@ -63,7 +63,7 @@ const PropogationProvider = ({ children }) => {
 
   const updatePropogation = (plantId, id, propogation
   ) => {
-    axios.put(`/api/plants/${plantId}/Propogations/${id}`, { propogation
+    axios.put(`/api/plants/${plantId}/propogations/${id}`, { propogation
    })
       .then( res => {
         const newUpdatedPropogations = propogations.map( e => {
@@ -86,7 +86,7 @@ const PropogationProvider = ({ children }) => {
   }
 
   const deletePropogation = (plantId, id) => {
-    axios.delete(`/api/plants/${plantId}/propogation/${id}`)
+    axios.delete(`/api/plants/${plantId}/propogations/${id}`)
       .then(res => {
         setPropogations(propogations.filter(p => p.id !== id))
       })

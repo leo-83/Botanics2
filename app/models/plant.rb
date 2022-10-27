@@ -5,6 +5,8 @@ class Plant < ApplicationRecord
   has_many :users, through: :wishlist
   has_many :users, through: :notes
   has_many :pestdiseases, dependent: :destroy
+  has_many :propogations, dependent: :destroy
+
   
   validates :name, :desc, presence: true
 end

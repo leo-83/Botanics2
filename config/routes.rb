@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     resources :plants do
       resources :pestdiseases
     end
+    resources :plants do
+      resources :propogations
+    end
     resources :users, only: :update
   end 
 end
