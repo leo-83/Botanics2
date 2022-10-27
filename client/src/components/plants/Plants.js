@@ -34,11 +34,11 @@ const Plants = ({ plants, getAllPlants }) => {
           ) }
         </Carousel>
 
-      {/* <Link to='/randoplant'>
+      <Link to='/randoplant'>
         <Button>
           Rando Plant
         </Button>
-      </Link> */}
+      </Link>
       
 
       <Modal show={adding} onHide={() => setAdd(false)}>
@@ -55,7 +55,8 @@ const Plants = ({ plants, getAllPlants }) => {
       <PlantList
         plants={plants}
       />
-      <div style={{display: 'flex', justifyContent: 'center'}}>
+      <div style={{display: 'flex', justifyContent: 'center', paddingTop: '20px'}}>
+
       <AddPlantButton onClick={() => setAdd(true)}
       >
         Add Plant
