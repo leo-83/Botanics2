@@ -68,6 +68,7 @@ const MainNavbar = ({ user, handleLogout }) => {
     )
   }
 }
+
   return (
     <>
       <nav>
@@ -79,6 +80,7 @@ const MainNavbar = ({ user, handleLogout }) => {
     </>
   )
 }
+
 
   const ConnectedMainNavbar = (props) => (
     
