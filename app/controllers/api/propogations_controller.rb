@@ -34,7 +34,7 @@ end
 
 private 
     def propogation_params
-      params.require(:propogation).permit(:user_id)
+      params.require(:propogation).permit(:user_id, :name, :pdate, :method, :results)
     end
 
     def set_plant
