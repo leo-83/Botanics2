@@ -46,40 +46,13 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
                     <Link to={`/${id}/notes`}>
                       <NotesButton>Notes</NotesButton>
                     </Link>
-                    <p></p>
-                    <Button
-                      onClick={() => deletePlant(id)}
-                    >
-                      Delete
-                    </Button>
-                    <p></p>
-                    <Link to={`/${id}/notes`}>
-                    <br></br>
-                      <Button>Add Note</Button>
-                      <br></br>
-                    </Link>
                     <br></br>
                     <Link to={`/${id}/pestdiseases`}>
                       <PestButton>Pest/Diseases</PestButton>
-                      <br></br>
                     </Link>
                     <br></br>
                     <Link to={`/${id}/propogations`}>
-                      <Button>Propogation</Button>
-                      <br></br>
-                    </Link>
-                    <p></p>
-                    Coming Soon:
-                    <Link to={`/${id}/profile`}>
-                      <Button>
-                        Add to My Plants
-                      </Button>
-                    </Link>
-                    <br />
-                    <Link to={`/${id}/wishlists`}>
-                      <Button>
-                        Add to WishList
-                      </Button>
+                      <PropButton>Propogation</PropButton>
                     </Link>
                   </Col>
                   <Col>
