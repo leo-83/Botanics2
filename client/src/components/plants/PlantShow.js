@@ -46,11 +46,28 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
                     <Link to={`/${id}/notes`}>
                       <NotesButton>Notes</NotesButton>
                     </Link>
+                    <br></br>
                     <Link to={`/${id}/pestdiseases`}>
-                      <PestButton>Pest/Diseases</PestButton>
+                      <Button>Add Plant Pest and/or Disease</Button>
+                      <br></br>
                     </Link>
+                    <br></br>
                     <Link to={`/${id}/propogations`}>
-                      <PropButton>Propogation</PropButton>
+                      <Button>Propogation</Button>
+                      <br></br>
+                    </Link>
+                    <p></p>
+                    Coming Soon:
+                    <Link to={`/${id}/profile`}>
+                      <Button>
+                        Add to My Plants
+                      </Button>
+                    </Link>
+                    <br />
+                    <Link to={`/${id}/wishlists`}>
+                      <Button>
+                        Add to WishList
+                      </Button>
                     </Link>
                   </Col>
                   <Col>

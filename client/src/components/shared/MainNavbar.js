@@ -63,6 +63,9 @@ const MainNavbar = ({ user, handleLogout }) => {
                Login
             </LoginButton>
           </Link>
+          <Link to='/aboutUs'>
+            <li>About Us</li>
+          </Link>
         </RightContainer>
       </>
     )
@@ -80,11 +83,10 @@ const MainNavbar = ({ user, handleLogout }) => {
   )
 }
 
-  const ConnectedMainNavbar = (props) => (
-    
-    <AuthConsumer>
-      { value => <MainNavbar {...props} {...value} />}
-    </AuthConsumer>
-  )
+const ConnectedMainNavbar = (props) => (
+  <AuthConsumer>
+    { value => <MainNavbar {...props} {...value} />}
+  </AuthConsumer>
+)
 
-  export default ConnectedMainNavbar;
+export default ConnectedMainNavbar;

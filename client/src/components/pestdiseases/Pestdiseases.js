@@ -15,7 +15,7 @@ const Pestdiseases = ({ pestdiseases, getAllPestdiseases }) => {
 
   return (
     <>
-      <Button variant="primary" onClick={() => setAdd(true)}>
+    <Button variant="primary" onClick={() => setAdd(true)}>
         + Add Pest or Disease
       </Button>
       <Modal show={adding} onHide={() => setAdd(false)}>

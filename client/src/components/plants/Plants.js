@@ -32,14 +32,7 @@ const Plants = ({ plants, getAllPlants }) => {
               </Carousel.Item>
             
           ) }
-        </Carousel>
-
-      <Link to='/randoplant'>
-        <Button>
-          Rando Plant
-        </Button>
-      </Link>
-      
+        </Carousel>      
 
       <Modal show={adding} onHide={() => setAdd(false)}>
         <Modal.Header closeButton>

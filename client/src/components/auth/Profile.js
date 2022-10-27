@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { AuthConsumer } from "../../providers/AuthProvider";
 import { useState, useEffect } from 'react';
 import { Form, Row, Col, Container, Image, Button } from 'react-bootstrap';
@@ -91,6 +92,13 @@ const Profile = ({ user, updateUser }) => {
   const profileView = () => {
     return (
       <>
+      <style type="text/css">
+      {`
+          .MyPlants {
+              text-align: center;
+          }
+      `}
+  </style>
         <Col md='4'>
           <Image
             width='250px'
@@ -101,6 +109,14 @@ const Profile = ({ user, updateUser }) => {
           <h1>{formVals.name}</h1>
           <h1>{formVals.email}</h1>
         </Col>
+        <Row className="My Plants">
+                            <p>
+                                Checkout My Plants&nbsp;
+                                <Link to="/MyPlants">
+                                    My Plants
+                                </Link>
+                            </p>
+                    </Row>
       </>
     )
   }
