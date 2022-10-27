@@ -11,7 +11,6 @@ export const CarouselImg = styled.img`
   height:300px; 
   width:300px;
   align-content: center;
-
 `
 
 export const MyPlantsTitle = styled.h1`
@@ -22,7 +21,6 @@ export const MyPlantsTitle = styled.h1`
 export const MyPlantsLinks = styled.h2`
   text-align: center;
   font-size: small;
-
 `
 
 export const AddPlantButton = styled.button`
@@ -102,4 +100,27 @@ export const DeleteButton = styled.button`
   width: 70px;
   font-family: dosis;
   align-content: center;
+`
+export const News = styled.h1`
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: dosis;
+`
+export const News2 = styled.h1`
+  text-align: center;
+  font-size: 36px;
+  font-weight: 200;
+  font-family: dosis;
+`
+export const SubscribeButton = styled.button`
+  color: #000000;
+  background: white;
+  text-align: center;
+  border-width: 1px;
+  border-radius: 25px;
+  height: 40px;
+  width: 150px;
+  font-family: dosis;
+  align-self: center;
 `

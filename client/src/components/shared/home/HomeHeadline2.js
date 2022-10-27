@@ -49,7 +49,7 @@ const Headline = () => (
     </Col>
   </Row>
 
-// </>
+ </>
 )
 
 export default Headline;
