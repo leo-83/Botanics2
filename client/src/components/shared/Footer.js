@@ -2,33 +2,26 @@ import { FooterLink } from "../../styles/Footer.style";
 
 const Footer = () => (
   <>
-    <p className="text-center">
+       <p className="text-center">
       Copyright © {(new Date().getFullYear())} Plant.
-    </p>
+      </p>
     <FooterLink to="/">
-    <p>
-       Gift Center
-    </p>
+      <p>Gift Center</p>
     </FooterLink>
     <FooterLink to="/">
-    <p>
-       FAQ
-    </p>
+      <p>FAQ</p>
     </FooterLink>
     <FooterLink to="/">
-    <p>
-       Terms of Use
-    </p>
+      <p>Terms of Use</p>
     </FooterLink>
     <FooterLink to="/">
-    <p>
-       Privacy Policy
-    </p>
+      <p>Privacy Policy</p>
     </FooterLink>
     <FooterLink to="/">
-    <p>
-       Buying Guides
-    </p>
+      <p>Buying Guides</p>
+    </FooterLink>
+    <FooterLink to="/AboutUs">
+      <p>About Us</p>
     </FooterLink>
   </>
 )
