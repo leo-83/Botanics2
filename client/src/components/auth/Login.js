@@ -51,7 +51,7 @@ const Login = ({ handleLogin, errors, setErrors  }) => {
           .img {
             position: relative;
             right: 10vw;
-            top: 8vw;
+            top: 0vw;
           }
           .width {
             width: 50vw
