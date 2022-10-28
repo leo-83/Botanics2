@@ -1,6 +1,11 @@
 import AboutUsCard from "./AboutUsCard";
 import React from "react";
 import "./Card.css";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import AboutUsCarousel from "./Carousel";
+
 const teamMembers = [
   {
     name: "Austin",
@@ -19,25 +24,31 @@ const teamMembers = [
   },
   {
     name: "Brennen",
-    image: "",
+    image: "/images/brennen.JPG",
     desc: "Team Member",
   },
   {
     name: "Christian",
-    image: "",
+    image: "/images/christian.png",
     desc: "Team Member",
   },
 ];
+
 const AboutUs = () => {
   return (
-    <div>
+    <Container>
       <h1>About Us</h1>
-      <div>
+
+      <Row>
+        <Col xs={12}>
+          <h3 className="text-center m-5">Team</h3>
+        </Col>
+
         {teamMembers.map((e) => {
           return <AboutUsCard name={e.name} image={e.image} desc={e.desc} />;
         })}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 };
 
