@@ -2,7 +2,7 @@ import { Card, Modal, Button, Container, Row, Col, Image } from 'react-bootstrap
 import { PlantConsumer } from '../../providers/PlantProvider';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShowPlantButton, EditButton, DeleteButton, NotesButton, PestButton, PropButton } from '../../styles/HomeStyles';
+import { ShowPlantButton, EditButton, DeleteButton, NotesButton, PestButton, PropButton, SoonButton } from '../../styles/HomeStyles';
 
 const PlantShow = ({ id, name, img, desc, deletePlant}) => {
   const [showing, setShow] = useState(false)
@@ -46,28 +46,27 @@ const PlantShow = ({ id, name, img, desc, deletePlant}) => {
                     <Link to={`/${id}/notes`}>
                       <NotesButton>Notes</NotesButton>
                     </Link>
-                    <br></br>
+                    <br />
                     <Link to={`/${id}/pestdiseases`}>
-                      <Button>Add Plant Pest and/or Disease</Button>
-                      <br></br>
+                      <PestButton>Pest/Disease</PestButton>
+                      <br />
                     </Link>
-                    <br></br>
+                    <br />
                     <Link to={`/${id}/propogations`}>
-                      <Button>Propogation</Button>
-                      <br></br>
+                      <PropButton>Propogation</PropButton>
+                      <br />
                     </Link>
-                    <p></p>
-                    Coming Soon:
+                    <p>Coming Soon:</p>
                     <Link to={`/${id}/profile`}>
-                      <Button>
+                      <SoonButton>
                         Add to My Plants
-                      </Button>
+                      </SoonButton>
                     </Link>
                     <br />
                     <Link to={`/${id}/wishlists`}>
-                      <Button>
+                      <SoonButton>
                         Add to WishList
-                      </Button>
+                      </SoonButton>
                     </Link>
                   </Col>
                   <Col>
