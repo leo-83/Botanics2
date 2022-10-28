@@ -26,17 +26,17 @@ const MainNavbar = ({ user, handleLogout }) => {
           <UserNavbar>
             <NavbarInnerContainer>
               <LeftContainer>
-                <Link to='/propogation'>
+                {/* <Link to='/propogations'>
                   <NavbarButton>
                     Propogation
                   </NavbarButton>
-                </Link>
+                </Link> */}
                 <Link to='/plants'>
                   <NavbarButton>
                     All Plants
                   </NavbarButton>
                 </Link>
-                <Link to='/home'>
+                <Link to='/'>
                   <NavbarButton>
                     Home
                   </NavbarButton>
