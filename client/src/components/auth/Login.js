@@ -3,7 +3,7 @@ import { useState } from "react";
 import Flash from "../shared/Flash";
 import { Container, Row, Col, Form, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import profilebackground from '../images/profilebackground.png'
+import ProfileBackground from '../images/ProfileBackground.png'
 
 const Login = ({ handleLogin, errors, setErrors  }) => {
   const [user, setUser] = useState({ email: '', password: '' })
@@ -150,7 +150,7 @@ const Login = ({ handleLogin, errors, setErrors  }) => {
         <Col md='4'>
           <Image className= 'img'
             width='500px'
-            src={ profilebackground } 
+            src={ ProfileBackground } 
           />
         </Col>
       </Row>
