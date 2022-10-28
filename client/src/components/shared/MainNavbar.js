@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { LeftContainer,
@@ -9,10 +9,16 @@ import { LeftContainer,
   RightContainer, 
   SignupButton, 
   UserNavbar,
+  Logo,
+  ProfileImage,
+  LogoutButton,
 } from '../../styles/Navbar.style';
+import BotanicsLogo from '../../images/BotanicsLogo.png'
+import profileimg from '../../images/profileimg.jpg'
 
 const MainNavbar = ({ user, handleLogout }) => {
   const rightNavItems = () => {
+  
     // links that show up if you are logged in
     if (user) {
       return (
@@ -20,7 +26,7 @@ const MainNavbar = ({ user, handleLogout }) => {
           <UserNavbar>
             <NavbarInnerContainer>
               <LeftContainer>
-                <Link to='/propogations'>
+                <Link to='/propogation'>
                   <NavbarButton>
                     Propogation
                   </NavbarButton>
@@ -30,22 +36,26 @@ const MainNavbar = ({ user, handleLogout }) => {
                     All Plants
                   </NavbarButton>
                 </Link>
-                <Link to='/'>
+                <Link to='/home'>
                   <NavbarButton>
                     Home
                   </NavbarButton>
                 </Link>
+                <Logo src={BotanicsLogo}></Logo>
               </LeftContainer>
               <RightContainer>
                 <Link to='/profile'>
-                  <NavbarButton>
-                    Profile
-                  </NavbarButton>
+                    <NavbarButton>
+                      <ProfileImage src={profileimg}></ProfileImage>
+                    </NavbarButton>
                 </Link>
+                <LogoutButton onClick={() => handleLogout() }>
+                  Logout
+                </LogoutButton>
               </RightContainer>
             </NavbarInnerContainer>
           </UserNavbar>
-        {/* <NavbarBorder></NavbarBorder> */}
+        <NavbarBorder></NavbarBorder>
       </>
     )
   } else {
@@ -63,14 +73,11 @@ const MainNavbar = ({ user, handleLogout }) => {
                Login
             </LoginButton>
           </Link>
-          <Link to='/aboutUs'>
-            <li>About Us</li>
-          </Link>
         </RightContainer>
       </>
     )
   }
-  }
+}
   return (
     <>
       <nav>
@@ -83,10 +90,11 @@ const MainNavbar = ({ user, handleLogout }) => {
   )
 }
 
-const ConnectedMainNavbar = (props) => (
-  <AuthConsumer>
-    { value => <MainNavbar {...props} {...value} />}
-  </AuthConsumer>
-)
+  const ConnectedMainNavbar = (props) => (
+    
+    <AuthConsumer>
+      { value => <MainNavbar {...props} {...value} />}
+    </AuthConsumer>
+  )
 
-export default ConnectedMainNavbar;
+  export default ConnectedMainNavbar;
