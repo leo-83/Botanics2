@@ -14,7 +14,7 @@ export const NavbarButton = styled.button`
   color: black;
   background-color: transparent;
   font-size: 17px;
-  font-family: Dosis-Light;
+  font-family: DosisRegular !important;
   :hover {
     color: #248232;
   }
@@ -61,6 +61,8 @@ export const LoginButton = styled.button`
   font-family: Dosis-Light;
   font-size: 15px;
   border: 1px solid #000000;
+  margin-top: 10px;
+  margin-left: 5px;
 `;
 
 export const SignupButton = styled.button`
@@ -72,6 +74,7 @@ export const SignupButton = styled.button`
   font-family: Dosis-Light;
   font-size: 15px;
   border: 1px solid #000000;
+  margin-top: 10px;
 `;
 
 export const Logo = styled.img`
@@ -114,7 +117,7 @@ export const LogoutButton = styled.button`
   color: black;
   background-color: transparent;
   font-size: 17px;
-  font-family: Dosis-Light;
+  font-family: DosisRegular;
   :hover {
     color: #248232;
   }

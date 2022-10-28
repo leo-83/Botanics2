@@ -11,8 +11,8 @@ import Plants from "./components/plants/Plants";
 import PlantForm from "./components/plants/PlantForm";
 import Profile from "./components/auth/Profile";
 import Notes from "./components/notes/Notes";
-import Wishlist from "./components/wishlists/Wishlist";
-import WishlistForm from "./components/wishlists/WishlistForm";
+// import Wishlist from "./components/wishlists/Wishlist";
+// import WishlistForm from "./components/wishlists/WishlistForm";
 import Propogations from './components/propogation/Propogations';
 import Footer from './components/shared/Footer';
 import Pestdiseases from  './components/pestdiseases/Pestdiseases'

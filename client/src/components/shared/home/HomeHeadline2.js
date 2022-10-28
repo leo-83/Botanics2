@@ -15,7 +15,7 @@ const Headline = () => (
   <Row>
     <Col>
       <img src="https://images.unsplash.com/uploads/1411901100260f56b39b9/ab70b250?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JlZW5ob3VzZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
-      width="662"
+      width="713"
       height="500"
       />
     </Col>

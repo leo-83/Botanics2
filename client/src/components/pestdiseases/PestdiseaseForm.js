@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { PestdiseaseConsumer } from '../../providers/PestdiseaseProvider';
 import { Button, Form } from 'react-bootstrap';
 
-const PestdiseaseForm = ({ pestdisease, addPestdisease, setAdd, pdate, problem, treatment, name,  updatePestdisease, errors, setErrors, id, plantId, setEdit }) => {
-  const [pestdiesease, setPestdisease] = useState({ name: '', pdate: '', problem: '', treatment: '' })
+const PestdiseaseForm = ({ addPestdisease, setAdd, pdate, problem, treatment, name,  updatePestdisease, errors, setErrors, id, plantId, setEdit }) => {
+  const [pestDisease, setPestdisease] = useState({ name: '', pdate: '', problem: '', treatment: '' })
    
   useEffect( () => {
     if (id) {
@@ -14,11 +14,11 @@ const PestdiseaseForm = ({ pestdisease, addPestdisease, setAdd, pdate, problem, 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
-      updatePestdisease(plantId, id, pestdisease)
+      updatePestdisease(plantId, id, pestDisease)
       setEdit(false)
     } 
     else {
-      addPestdisease(plantId, pestdiesease)
+      addPestdisease(plantId, pestDisease)
       setAdd(false)
     }
     setPestdisease({ name: '', pdate: '', problem: '', treatment: '' })
@@ -31,8 +31,8 @@ const PestdiseaseForm = ({ pestdisease, addPestdisease, setAdd, pdate, problem, 
           <Form.Label>Pest & Disease</Form.Label>
           <Form.Control 
             name='name'
-            value={pestdiesease.name}
-            onChange={(e) => setPestdisease({ ...pestdiesease, name: e.target.value })}
+            value={pestDisease.name}
+            onChange={(e) => setPestdisease({ ...pestDisease, name: e.target.value })}
             required
           />
         </Form.Group>
@@ -40,8 +40,8 @@ const PestdiseaseForm = ({ pestdisease, addPestdisease, setAdd, pdate, problem, 
           <Form.Label>Date you noticed the problem</Form.Label>
           <Form.Control 
             name='pdate'
-            value={pestdisease.pdate}
-            onChange={(e) => setPestdisease({ ...pestdisease, pdate: e.target.value })}
+            value={pestDisease.pdate}
+            onChange={(e) => setPestdisease({ ...pestDisease, pdate: e.target.value })}
             required  
           />
         </Form.Group>
@@ -49,8 +49,8 @@ const PestdiseaseForm = ({ pestdisease, addPestdisease, setAdd, pdate, problem, 
           <Form.Label>Problem</Form.Label>
           <Form.Control 
             name='problem'
-            value={pestdisease.problem}
-            onChange={(e) => setPestdisease({ ...pestdisease, problem: e.target.value })}
+            value={pestDisease.problem}
+            onChange={(e) => setPestdisease({ ...pestDisease, problem: e.target.value })}
             required  
             as="textarea" 
             rows={3}
@@ -60,8 +60,8 @@ const PestdiseaseForm = ({ pestdisease, addPestdisease, setAdd, pdate, problem, 
           <Form.Label>Treatment</Form.Label>
           <Form.Control 
             name='treatment'
-            value={pestdisease.treatment}
-            onChange={(e) => setPestdisease({ ...pestdisease, treatment: e.target.value })}
+            value={pestDisease.treatment}
+            onChange={(e) => setPestdisease({ ...pestDisease, treatment: e.target.value })}
             required  
             as="textarea" 
             rows={3}
